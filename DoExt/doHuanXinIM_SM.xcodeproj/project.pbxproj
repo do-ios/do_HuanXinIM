@@ -116,7 +116,7 @@
 		3BD5AC391AEE33E000CF31F6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC381AEE33E000CF31F6 /* libz.dylib */; };
 		3BD5AC3B1AEE33E600CF31F6 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC3A1AEE33E600CF31F6 /* libxml2.dylib */; };
 		3BD5AC3D1AEE33F000CF31F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC3C1AEE33F000CF31F6 /* libsqlite3.dylib */; };
-		3BD5AC3E1AEE342300CF31F6 /* M0005_HuanXinIM_ISM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA241AEDFAAF00CF31F6 /* M0005_HuanXinIM_ISM.h */; };
+		3BD5AC3E1AEE342300CF31F6 /* do_HuanXinIM_ISM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA241AEDFAAF00CF31F6 /* do_HuanXinIM_ISM.h */; };
 		3BD5AC3F1AEE342300CF31F6 /* do_HuanXinIM_App.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA251AEDFABC00CF31F6 /* do_HuanXinIM_App.h */; };
 		3BD5AC401AEE342300CF31F6 /* do_HuanXinIM_SM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA271AEDFABC00CF31F6 /* do_HuanXinIM_SM.h */; };
 		3BD5AE2B1AEE4FCF00CF31F6 /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AE281AEE4FCF00CF31F6 /* libEaseMobClientSDKLite.a */; };
@@ -129,7 +129,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				3BD5AC3E1AEE342300CF31F6 /* M0005_HuanXinIM_ISM.h in CopyFiles */,
+				3BD5AC3E1AEE342300CF31F6 /* do_HuanXinIM_ISM.h in CopyFiles */,
 				3BD5AC3F1AEE342300CF31F6 /* do_HuanXinIM_App.h in CopyFiles */,
 				3BD5AC401AEE342300CF31F6 /* do_HuanXinIM_SM.h in CopyFiles */,
 			);
@@ -347,7 +347,7 @@
 		3B8969501AEF5BDD0053E824 /* PublicGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicGroupDetailViewController.m; sourceTree = "<group>"; };
 		3B8969511AEF5BDD0053E824 /* PublicGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicGroupListViewController.h; sourceTree = "<group>"; };
 		3B8969521AEF5BDD0053E824 /* PublicGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicGroupListViewController.m; sourceTree = "<group>"; };
-		3BD5AA241AEDFAAF00CF31F6 /* M0005_HuanXinIM_ISM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M0005_HuanXinIM_ISM.h; sourceTree = "<group>"; };
+		3BD5AA241AEDFAAF00CF31F6 /* do_HuanXinIM_ISM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = do_HuanXinIM_ISM.h; sourceTree = "<group>"; };
 		3BD5AA251AEDFABC00CF31F6 /* do_HuanXinIM_App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = do_HuanXinIM_App.h; sourceTree = "<group>"; };
 		3BD5AA261AEDFABC00CF31F6 /* do_HuanXinIM_App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = do_HuanXinIM_App.m; sourceTree = "<group>"; };
 		3BD5AA271AEDFABC00CF31F6 /* do_HuanXinIM_SM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = do_HuanXinIM_SM.h; sourceTree = "<group>"; };
@@ -1241,7 +1241,7 @@
 		A4917C461A78940200FFB148 /* ext_define */ = {
 			isa = PBXGroup;
 			children = (
-				3BD5AA241AEDFAAF00CF31F6 /* M0005_HuanXinIM_ISM.h */,
+				3BD5AA241AEDFAAF00CF31F6 /* do_HuanXinIM_ISM.h */,
 			);
 			path = ext_define;
 			sourceTree = "<group>";
