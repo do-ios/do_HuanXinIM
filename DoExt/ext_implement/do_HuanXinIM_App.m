@@ -22,7 +22,7 @@
 //}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-     NSString *huanxinKey = [[doServiceContainer Instance].ModuleExtManage GetThirdAppKey:@"M0005_HuanXinIM.plist" :@"EASEMOB_APPKEY"];
+     NSString *huanxinKey = [[doServiceContainer Instance].ModuleExtManage GetThirdAppKey:@"do_HuanXinIM.plist" :@"EASEMOB_APPKEY"];
     [[EaseMob sharedInstance] registerSDKWithAppKey:huanxinKey apnsCertName:nil];
 
     return YES;

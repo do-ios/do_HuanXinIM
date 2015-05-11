@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 DoExt. All rights reserved.
 //
 
-#import "M0005_HuanXinIM_ISM.h"
+#import "do_HuanXinIM_ISM.h"
 #import "doSingletonModule.h"
 
 @interface do_HuanXinIM_SM : doSingletonModule<do_HuanXinIM_ISM>
