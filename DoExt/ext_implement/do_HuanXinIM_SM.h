@@ -9,6 +9,6 @@
 #import "M0005_HuanXinIM_ISM.h"
 #import "doSingletonModule.h"
 
-@interface M0005_HuanXinIM_SM : doSingletonModule<M0005_HuanXinIM_ISM>
+@interface do_HuanXinIM_SM : doSingletonModule<do_HuanXinIM_ISM>
 
 @end

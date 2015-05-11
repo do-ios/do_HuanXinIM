@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 DoExt. All rights reserved.
 //
 
-#import "M0005_HuanXinIM_SM.h"
+#import "do_HuanXinIM_SM.h"
 
 #import "doScriptEngineHelper.h"
 #import "doIScriptEngine.h"
@@ -16,12 +16,12 @@
 #import "doIPage.h"
 #import "ChatViewController.h"
 
-@interface M0005_HuanXinIM_SM ()<EMChatManagerDelegate>
+@interface do_HuanXinIM_SM ()<EMChatManagerDelegate>
 @property(nonatomic,strong) id<doIScriptEngine> scritEngine;
 @property(nonatomic,copy) NSString *callbackName;
 @end
 
-@implementation M0005_HuanXinIM_SM
+@implementation do_HuanXinIM_SM
 #pragma mark -
 #pragma mark - 同步异步方法的实现
 /*

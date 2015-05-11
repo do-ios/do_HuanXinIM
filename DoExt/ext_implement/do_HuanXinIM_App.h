@@ -10,6 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "doIAppDelegate.h"
 
-@interface M0005_HuanXinIM_App : NSObject<doIAppDelegate>
+@interface do_HuanXinIM_App : NSObject<doIAppDelegate>
 
 @end

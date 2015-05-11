@@ -6,12 +6,12 @@
 //  Copyright (c) 2015年 DoExt. All rights reserved.
 //
 
-#import "M0005_HuanXinIM_App.h"
+#import "do_HuanXinIM_App.h"
 #import "EaseMob.h"
 #import "doServiceContainer.h"
 #import "doIModuleExtManage.h"
 
-@implementation M0005_HuanXinIM_App
+@implementation do_HuanXinIM_App
 @synthesize ThridPartyID;
 //- (instancetype)init
 //{

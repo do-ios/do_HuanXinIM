@@ -106,8 +106,8 @@
 		3B8969B31AEF5BDD0053E824 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B89694E1AEF5BDD0053E824 /* LocationViewController.m */; };
 		3B8969B41AEF5BDD0053E824 /* PublicGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8969501AEF5BDD0053E824 /* PublicGroupDetailViewController.m */; };
 		3B8969B51AEF5BDD0053E824 /* PublicGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8969521AEF5BDD0053E824 /* PublicGroupListViewController.m */; };
-		3BD5AA291AEDFABC00CF31F6 /* M0005_HuanXinIM_App.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5AA261AEDFABC00CF31F6 /* M0005_HuanXinIM_App.m */; };
-		3BD5AA2A1AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5AA281AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.m */; };
+		3BD5AA291AEDFABC00CF31F6 /* do_HuanXinIM_App.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5AA261AEDFABC00CF31F6 /* do_HuanXinIM_App.m */; };
+		3BD5AA2A1AEDFABC00CF31F6 /* do_HuanXinIM_SM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5AA281AEDFABC00CF31F6 /* do_HuanXinIM_SM.m */; };
 		3BD5AC2F1AEE33C300CF31F6 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC2E1AEE33C300CF31F6 /* libstdc++.6.0.9.dylib */; };
 		3BD5AC311AEE33C800CF31F6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC301AEE33C800CF31F6 /* CFNetwork.framework */; };
 		3BD5AC331AEE33CD00CF31F6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC321AEE33CD00CF31F6 /* MobileCoreServices.framework */; };
@@ -117,8 +117,8 @@
 		3BD5AC3B1AEE33E600CF31F6 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC3A1AEE33E600CF31F6 /* libxml2.dylib */; };
 		3BD5AC3D1AEE33F000CF31F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AC3C1AEE33F000CF31F6 /* libsqlite3.dylib */; };
 		3BD5AC3E1AEE342300CF31F6 /* M0005_HuanXinIM_ISM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA241AEDFAAF00CF31F6 /* M0005_HuanXinIM_ISM.h */; };
-		3BD5AC3F1AEE342300CF31F6 /* M0005_HuanXinIM_App.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA251AEDFABC00CF31F6 /* M0005_HuanXinIM_App.h */; };
-		3BD5AC401AEE342300CF31F6 /* M0005_HuanXinIM_SM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA271AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.h */; };
+		3BD5AC3F1AEE342300CF31F6 /* do_HuanXinIM_App.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA251AEDFABC00CF31F6 /* do_HuanXinIM_App.h */; };
+		3BD5AC401AEE342300CF31F6 /* do_HuanXinIM_SM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BD5AA271AEDFABC00CF31F6 /* do_HuanXinIM_SM.h */; };
 		3BD5AE2B1AEE4FCF00CF31F6 /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5AE281AEE4FCF00CF31F6 /* libEaseMobClientSDKLite.a */; };
 /* End PBXBuildFile section */
 
@@ -130,8 +130,8 @@
 			dstSubfolderSpec = 16;
 			files = (
 				3BD5AC3E1AEE342300CF31F6 /* M0005_HuanXinIM_ISM.h in CopyFiles */,
-				3BD5AC3F1AEE342300CF31F6 /* M0005_HuanXinIM_App.h in CopyFiles */,
-				3BD5AC401AEE342300CF31F6 /* M0005_HuanXinIM_SM.h in CopyFiles */,
+				3BD5AC3F1AEE342300CF31F6 /* do_HuanXinIM_App.h in CopyFiles */,
+				3BD5AC401AEE342300CF31F6 /* do_HuanXinIM_SM.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,10 +348,10 @@
 		3B8969511AEF5BDD0053E824 /* PublicGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicGroupListViewController.h; sourceTree = "<group>"; };
 		3B8969521AEF5BDD0053E824 /* PublicGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicGroupListViewController.m; sourceTree = "<group>"; };
 		3BD5AA241AEDFAAF00CF31F6 /* M0005_HuanXinIM_ISM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M0005_HuanXinIM_ISM.h; sourceTree = "<group>"; };
-		3BD5AA251AEDFABC00CF31F6 /* M0005_HuanXinIM_App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M0005_HuanXinIM_App.h; sourceTree = "<group>"; };
-		3BD5AA261AEDFABC00CF31F6 /* M0005_HuanXinIM_App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M0005_HuanXinIM_App.m; sourceTree = "<group>"; };
-		3BD5AA271AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M0005_HuanXinIM_SM.h; sourceTree = "<group>"; };
-		3BD5AA281AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M0005_HuanXinIM_SM.m; sourceTree = "<group>"; };
+		3BD5AA251AEDFABC00CF31F6 /* do_HuanXinIM_App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = do_HuanXinIM_App.h; sourceTree = "<group>"; };
+		3BD5AA261AEDFABC00CF31F6 /* do_HuanXinIM_App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = do_HuanXinIM_App.m; sourceTree = "<group>"; };
+		3BD5AA271AEDFABC00CF31F6 /* do_HuanXinIM_SM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = do_HuanXinIM_SM.h; sourceTree = "<group>"; };
+		3BD5AA281AEDFABC00CF31F6 /* do_HuanXinIM_SM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = do_HuanXinIM_SM.m; sourceTree = "<group>"; };
 		3BD5AC2E1AEE33C300CF31F6 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		3BD5AC301AEE33C800CF31F6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3BD5AC321AEE33CD00CF31F6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -461,7 +461,7 @@
 		3BD5AE261AEE4FCF00CF31F6 /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		3BD5AE281AEE4FCF00CF31F6 /* libEaseMobClientSDKLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDKLite.a; sourceTree = "<group>"; };
 		3BD5AE2A1AEE4FCF00CF31F6 /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
-		A4E1EABD1A778F1700F0B3CE /* libDoHuanXinIM_SM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDoHuanXinIM_SM.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.temp_caseinsensitive_rename.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdoHuanXinIM_SM.temp_caseinsensitive_rename.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1249,10 +1249,10 @@
 		A4917C481A78940200FFB148 /* ext_implement */ = {
 			isa = PBXGroup;
 			children = (
-				3BD5AA251AEDFABC00CF31F6 /* M0005_HuanXinIM_App.h */,
-				3BD5AA261AEDFABC00CF31F6 /* M0005_HuanXinIM_App.m */,
-				3BD5AA271AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.h */,
-				3BD5AA281AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.m */,
+				3BD5AA251AEDFABC00CF31F6 /* do_HuanXinIM_App.h */,
+				3BD5AA261AEDFABC00CF31F6 /* do_HuanXinIM_App.m */,
+				3BD5AA271AEDFABC00CF31F6 /* do_HuanXinIM_SM.h */,
+				3BD5AA281AEDFABC00CF31F6 /* do_HuanXinIM_SM.m */,
 			);
 			path = ext_implement;
 			sourceTree = "<group>";
@@ -1273,7 +1273,7 @@
 		A4E1EABE1A778F1700F0B3CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4E1EABD1A778F1700F0B3CE /* libDoHuanXinIM_SM.a */,
+				A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.temp_caseinsensitive_rename.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1281,9 +1281,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4E1EABC1A778F1700F0B3CE /* DoHuanXinIM_SM */ = {
+		A4E1EABC1A778F1700F0B3CE /* doHuanXinIM_SM.temp_caseinsensitive_rename */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "DoHuanXinIM_SM" */;
+			buildConfigurationList = A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "doHuanXinIM_SM.temp_caseinsensitive_rename" */;
 			buildPhases = (
 				A4E1EAB91A778F1700F0B3CE /* Sources */,
 				A4E1EABA1A778F1700F0B3CE /* Frameworks */,
@@ -1293,9 +1293,9 @@
 			);
 			dependencies = (
 			);
-			name = DoHuanXinIM_SM;
+			name = doHuanXinIM_SM.temp_caseinsensitive_rename;
 			productName = DoExt_SM;
-			productReference = A4E1EABD1A778F1700F0B3CE /* libDoHuanXinIM_SM.a */;
+			productReference = A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.temp_caseinsensitive_rename.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1312,7 +1312,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A4E1EAB81A778F1700F0B3CE /* Build configuration list for PBXProject "DoHuanXinIM_SM" */;
+			buildConfigurationList = A4E1EAB81A778F1700F0B3CE /* Build configuration list for PBXProject "doHuanXinIM_SM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1324,7 +1324,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A4E1EABC1A778F1700F0B3CE /* DoHuanXinIM_SM */,
+				A4E1EABC1A778F1700F0B3CE /* doHuanXinIM_SM.temp_caseinsensitive_rename */,
 			);
 		};
 /* End PBXProject section */
@@ -1416,9 +1416,9 @@
 				3B8969A31AEF5BDD0053E824 /* EMChatViewCell.m in Sources */,
 				3B8969551AEF5BDD0053E824 /* MBProgressHUD+Add.m in Sources */,
 				3B8969731AEF5BDD0053E824 /* PSTCollectionViewController.m in Sources */,
-				3BD5AA2A1AEDFABC00CF31F6 /* M0005_HuanXinIM_SM.m in Sources */,
+				3BD5AA2A1AEDFABC00CF31F6 /* do_HuanXinIM_SM.m in Sources */,
 				3B8969651AEF5BDD0053E824 /* EMSDWebImageManager.m in Sources */,
-				3BD5AA291AEDFABC00CF31F6 /* M0005_HuanXinIM_App.m in Sources */,
+				3BD5AA291AEDFABC00CF31F6 /* do_HuanXinIM_App.m in Sources */,
 				3B8969AE1AEF5BDD0053E824 /* GroupBansViewController.m in Sources */,
 				3B8969711AEF5BDD0053E824 /* PSTCollectionView.m in Sources */,
 				3B89697E1AEF5BDD0053E824 /* SRSlimeView.m in Sources */,
@@ -1528,7 +1528,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = DoHuanXinIM_SM;
+				PRODUCT_NAME = doHuanXinIM_SM.temp_caseinsensitive_rename;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = ../doLib/doCore/Header;
@@ -1546,7 +1546,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = DoHuanXinIM_SM;
+				PRODUCT_NAME = doHuanXinIM_SM.temp_caseinsensitive_rename;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = ../doLib/doCore/Header;
@@ -1556,7 +1556,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4E1EAB81A778F1700F0B3CE /* Build configuration list for PBXProject "DoHuanXinIM_SM" */ = {
+		A4E1EAB81A778F1700F0B3CE /* Build configuration list for PBXProject "doHuanXinIM_SM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4E1EACF1A778F1700F0B3CE /* Debug */,
@@ -1565,7 +1565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "DoHuanXinIM_SM" */ = {
+		A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "doHuanXinIM_SM.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4E1EAD21A778F1700F0B3CE /* Debug */,
