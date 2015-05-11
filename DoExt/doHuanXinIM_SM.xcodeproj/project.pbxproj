@@ -461,7 +461,7 @@
 		3BD5AE261AEE4FCF00CF31F6 /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		3BD5AE281AEE4FCF00CF31F6 /* libEaseMobClientSDKLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDKLite.a; sourceTree = "<group>"; };
 		3BD5AE2A1AEE4FCF00CF31F6 /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
-		A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.temp_caseinsensitive_rename.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdoHuanXinIM_SM.temp_caseinsensitive_rename.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdoHuanXinIM_SM.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1273,7 +1273,7 @@
 		A4E1EABE1A778F1700F0B3CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.temp_caseinsensitive_rename.a */,
+				A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1295,7 +1295,7 @@
 			);
 			name = doHuanXinIM_SM.temp_caseinsensitive_rename;
 			productName = DoExt_SM;
-			productReference = A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.temp_caseinsensitive_rename.a */;
+			productReference = A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1528,7 +1528,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = doHuanXinIM_SM.temp_caseinsensitive_rename;
+				PRODUCT_NAME = doHuanXinIM_SM;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = ../doLib/doCore/Header;
@@ -1546,7 +1546,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = doHuanXinIM_SM.temp_caseinsensitive_rename;
+				PRODUCT_NAME = doHuanXinIM_SM;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = ../doLib/doCore/Header;
