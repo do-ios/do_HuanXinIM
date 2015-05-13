@@ -31,29 +31,28 @@
 {
     NSString *filePath = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"HuanXinIM_SM.bundle/Resources/ChatView"];
     self.backgroundColor = [UIColor clearColor];
-    CGFloat insets = (self.frame.size.width - 4 * CHAT_BUTTON_SIZE) / 5;
+    CGFloat insets = (self.frame.size.width - 3 * CHAT_BUTTON_SIZE) / 4;
     
     _photoButton =[UIButton buttonWithType:UIButtonTypeCustom];
     [_photoButton setFrame:CGRectMake(insets, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
     NSString *filePhotoName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_photo@2x.png"];
     NSString *filePhotoSelName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_photoSelected@2x.png"];
-    UIImage *img = [UIImage imageWithContentsOfFile:filePhotoSelName];
     [_photoButton setImage:[UIImage imageWithContentsOfFile:filePhotoName] forState:UIControlStateNormal];
     [_photoButton setImage:[UIImage imageWithContentsOfFile:filePhotoSelName] forState:UIControlStateHighlighted];
     [_photoButton addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_photoButton];
     
-    NSString *fileLocationName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_location@2x.png"];
-    NSString *fileLocationSelName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_locationSelected@2x.png"];
-    _locationButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_locationButton setFrame:CGRectMake(insets * 2 + CHAT_BUTTON_SIZE, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-    [_locationButton setImage:[UIImage imageWithContentsOfFile:fileLocationName] forState:UIControlStateNormal];
-    [_locationButton setImage:[UIImage imageWithContentsOfFile:fileLocationSelName] forState:UIControlStateHighlighted];
-    [_locationButton addTarget:self action:@selector(locationAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_locationButton];
+//    NSString *fileLocationName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_location@2x.png"];
+//    NSString *fileLocationSelName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_locationSelected@2x.png"];
+//    _locationButton =[UIButton buttonWithType:UIButtonTypeCustom];
+//    [_locationButton setFrame:CGRectMake(insets * 2 + CHAT_BUTTON_SIZE, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+//    [_locationButton setImage:[UIImage imageWithContentsOfFile:fileLocationName] forState:UIControlStateNormal];
+//    [_locationButton setImage:[UIImage imageWithContentsOfFile:fileLocationSelName] forState:UIControlStateHighlighted];
+//    [_locationButton addTarget:self action:@selector(locationAction) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:_locationButton];
     
     _takePicButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_takePicButton setFrame:CGRectMake(insets * 3 + CHAT_BUTTON_SIZE * 2, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+    [_takePicButton setFrame:CGRectMake(insets * 2 + CHAT_BUTTON_SIZE * 1, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
     NSString *fileCameraName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_camera@2x.png"];
     NSString *fileCameraSelName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_cameraSelected@2x.png"];
     
@@ -65,7 +64,7 @@
     NSString *fileVideoName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_video@2x.png"];
     NSString *fileVideoSelName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_videoSelected@2x.png"];
     _videoButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_videoButton setFrame:CGRectMake(insets * 4 + CHAT_BUTTON_SIZE * 3, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+    [_videoButton setFrame:CGRectMake(insets * 3 + CHAT_BUTTON_SIZE * 2, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
     [_videoButton setImage:[UIImage imageWithContentsOfFile:fileVideoName] forState:UIControlStateNormal];
     [_videoButton setImage:[UIImage imageNamed:fileVideoSelName] forState:UIControlStateHighlighted];
     [_videoButton addTarget:self action:@selector(takeVideoAction) forControlEvents:UIControlEventTouchUpInside];
