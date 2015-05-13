@@ -62,11 +62,13 @@
     //自己的代码实现
     
     NSString *userName = [doJsonHelper GetOneText:_dictParas :@"username" :@""];
+    NSString *userNickname = [doJsonHelper GetOneText:_dictParas :@"userNickname" :@""];
     //通过用户名得到聊天会话对象
     EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:userName isGroup:NO];
     NSString *chatter = conversation.chatter;
     //初始化聊天控制器
     ChatViewController *chatVC = [[ChatViewController alloc]initWithChatter:chatter isGroup:NO];
+    chatVC.userNickname = userNickname;
     id<doIPage>pageModel = _scritEngine.CurrentPage;
     UIViewController *currentVC = (UIViewController *)pageModel.PageView;
     [currentVC presentViewController:chatVC animated:YES completion:^{

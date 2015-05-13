@@ -1281,9 +1281,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4E1EABC1A778F1700F0B3CE /* doHuanXinIM_SM.temp_caseinsensitive_rename */ = {
+		A4E1EABC1A778F1700F0B3CE /* doHuanXinIM_SM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "doHuanXinIM_SM.temp_caseinsensitive_rename" */;
+			buildConfigurationList = A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "doHuanXinIM_SM" */;
 			buildPhases = (
 				A4E1EAB91A778F1700F0B3CE /* Sources */,
 				A4E1EABA1A778F1700F0B3CE /* Frameworks */,
@@ -1293,7 +1293,7 @@
 			);
 			dependencies = (
 			);
-			name = doHuanXinIM_SM.temp_caseinsensitive_rename;
+			name = doHuanXinIM_SM;
 			productName = DoExt_SM;
 			productReference = A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.a */;
 			productType = "com.apple.product-type.library.static";
@@ -1324,7 +1324,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A4E1EABC1A778F1700F0B3CE /* doHuanXinIM_SM.temp_caseinsensitive_rename */,
+				A4E1EABC1A778F1700F0B3CE /* doHuanXinIM_SM */,
 			);
 		};
 /* End PBXProject section */
@@ -1565,7 +1565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "doHuanXinIM_SM.temp_caseinsensitive_rename" */ = {
+		A4E1EAD11A778F1700F0B3CE /* Build configuration list for PBXNativeTarget "doHuanXinIM_SM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4E1EAD21A778F1700F0B3CE /* Debug */,

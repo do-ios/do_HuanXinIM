@@ -72,7 +72,7 @@ NSString *const kRouterEventChatHeadImageTapEventName = @"kRouterEventChatHeadIm
     
     _nameLabel.hidden = !messageModel.isChatGroup;
     NSString *filePath = [[[NSBundle mainBundle] resourcePath]stringByAppendingPathComponent:@"HuanXinIM_SM.bundle/Resources/chatListCell"];
-    NSString *fileName = [filePath stringByAppendingPathComponent:@"chatListCellHead.png"];
+    NSString *fileName = [filePath stringByAppendingPathComponent:@"chatListCellHead.jpg"];
     UIImage *placeholderImage = [UIImage imageWithContentsOfFile:fileName];
     [self.headImageView sd_setImageWithURL:_messageModel.headImageURL placeholderImage:placeholderImage];
 }

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatViewController : UIViewController
-
+@property(nonatomic,copy) NSString *userNickname;
 - (instancetype)initWithChatter:(NSString *)chatter isGroup:(BOOL)isGroup;
 - (void)reloadData;
 

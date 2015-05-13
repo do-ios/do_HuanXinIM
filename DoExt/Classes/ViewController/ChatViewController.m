@@ -35,6 +35,7 @@
 
 @interface ChatViewController ()<UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SRRefreshDelegate, IChatManagerDelegate, DXChatBarMoreViewDelegate, DXMessageToolBarDelegate, LocationViewDelegate, IDeviceManagerDelegate>
 {
+    UINavigationBar* titleNavbar;
     UIMenuController *_menuController;
     UIMenuItem *_copyMenuItem;
     UIMenuItem *_deleteMenuItem;
@@ -91,6 +92,8 @@
 {
     [super viewDidLoad];
     [self registerBecomeActive];
+    titleNavbar = [[UINavigationBar alloc] init];
+    [titleNavbar setFrame :CGRectMake(0, 0, self.view.frame.size.width, 64)];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
@@ -111,7 +114,6 @@
     _messageQueue = dispatch_queue_create("easemob.com", NULL);
     _isScrollToBottom = YES;
     
-    //    [self setupBarButtonItem];
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.slimeView];
     [self.view addSubview:self.chatToolBar];
@@ -130,33 +132,24 @@
 
 - (void)setupBarButtonItem
 {
-    
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 64)];
-    topView.backgroundColor = [UIColor colorWithRed:84/255.0 green:185/255.0 blue:208/255.0 alpha:1.0];
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 44, 44)];
     NSString *filePath = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"HuanXinIM_SM.bundle/Resources/NavigationBar"];
-    NSString *fileName = [filePath stringByAppendingPathComponent:@"back@2x.png"];
-    UIImage *img = [UIImage imageWithContentsOfFile:fileName];
-    [backButton setImage:[UIImage imageWithContentsOfFile:fileName] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [topView addSubview:backButton];
-    [self.view addSubview:topView];
-    //    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    //    [self.navigationItem setLeftBarButtonItem:backItem];
-    
+    NSString *fileName = [filePath stringByAppendingPathComponent:@"back.png"];
+    NSString *fileDleName = [filePath stringByAppendingPathComponent:@"delete.png"];
+    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:self.userNickname];
+    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithContentsOfFile:fileName] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithContentsOfFile:fileDleName] style:UIBarButtonItemStylePlain target:self action:@selector(removeAllMessages:)];
+    [navigationItem setLeftBarButtonItem:leftBarBtn];
+    [navigationItem setRightBarButtonItem:rightBarBtn];
+
+    [titleNavbar pushNavigationItem:navigationItem animated:NO];
+    titleNavbar.barTintColor = [UIColor colorWithRed:255/255.0 green:59/255.0 blue:64/255.0 alpha:1];
+    [self.view addSubview:titleNavbar];
     if (_isChatGroup) {
         UIButton *detailButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
         [detailButton setImage:[UIImage imageNamed:@"group_detail"] forState:UIControlStateNormal];
         [detailButton addTarget:self action:@selector(showRoomContact:) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:detailButton];
     }
-    else{
-        UIButton *clearButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 44, 44)];
-        [clearButton setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
-        [clearButton addTarget:self action:@selector(removeAllMessages:) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clearButton];
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,6 +158,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -301,7 +298,7 @@
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor lightGrayColor];
+        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.tableFooterView = [[UIView alloc] init];
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
@@ -1240,21 +1237,33 @@
     }
     else{
         __weak typeof(self) weakSelf = self;
-        [WCAlertView showAlertWithTitle:NSLocalizedString(@"prompt", @"Prompt")
-                                message:NSLocalizedString(@"sureToDelete", @"please make sure to delete")
-                     customizationBlock:^(WCAlertView *alertView) {
-                         
-                     } completionBlock:
-         ^(NSUInteger buttonIndex, WCAlertView *alertView) {
-             if (buttonIndex == 1) {
-                 [weakSelf.conversation removeAllMessages];
-                 [weakSelf.messages removeAllObjects];
-                 weakSelf.chatTagDate = nil;
-                 [weakSelf.dataSource removeAllObjects];
-                 [weakSelf.tableView reloadData];
-             }
-         } cancelButtonTitle:NSLocalizedString(@"cancel", @"Cancel") otherButtonTitles:NSLocalizedString(@"ok", @"OK"), nil];
-    }
+        [WCAlertView showAlertWithTitle:@"提示" message:@"请确定删除" customizationBlock:^(WCAlertView *alertView) {
+            
+        } completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+            if (buttonIndex == 1) {
+                [weakSelf.conversation removeAllMessages];
+                [weakSelf.messages removeAllObjects];
+                weakSelf.chatTagDate = nil;
+                [weakSelf.dataSource removeAllObjects];
+                [weakSelf.tableView reloadData];
+            }
+        } cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+
+//        [WCAlertView showAlertWithTitle:NSLocalizedString(@"prompt", @"Prompt")
+//                                message:NSLocalizedString(@"sureToDelete", @"please make sure to delete")
+//                     customizationBlock:^(WCAlertView *alertView) {
+//
+//                     } completionBlock:
+//         ^(NSUInteger buttonIndex, WCAlertView *alertView) {
+//             if (buttonIndex == 1) {
+//                 [weakSelf.conversation removeAllMessages];
+//                 [weakSelf.messages removeAllObjects];
+//                 weakSelf.chatTagDate = nil;
+//                 [weakSelf.dataSource removeAllObjects];
+//                 [weakSelf.tableView reloadData];
+//             }
+//         } cancelButtonTitle:NSLocalizedString(@"cancel", @"Cancel") otherButtonTitles:NSLocalizedString(@"ok", @"OK"), nil];
+        }
 }
 
 - (void)showMenuViewController:(UIView *)showInView andIndexPath:(NSIndexPath *)indexPath messageType:(MessageBodyType)messageType
