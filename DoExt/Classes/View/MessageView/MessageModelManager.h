@@ -15,5 +15,5 @@
 @interface MessageModelManager : NSObject
 
 + (id)modelWithMessage:(EMMessage *)message;
-
++ (id)modelWithMessage:(EMMessage *)message withUserIcon:(NSString *)userIcon myIcon:(NSString *)myIcon;
 @end

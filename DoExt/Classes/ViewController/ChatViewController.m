@@ -294,7 +294,7 @@
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - self.chatToolBar.frame.size.height) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - self.chatToolBar.frame.size.height - 64) style:UITableViewStylePlain];
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -677,7 +677,8 @@
                 if ([object isKindOfClass:[MessageModel class]]) {
                     EMMessage *currMsg = [weakSelf.dataSource objectAtIndex:i];
                     if ([message.messageId isEqualToString:currMsg.messageId]) {
-                        MessageModel *cellModel = [MessageModelManager modelWithMessage:message];
+//                        MessageModel *cellModel = [MessageModelManager modelWithMessage:message];
+                        MessageModel *cellModel = [MessageModelManager modelWithMessage:message withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [weakSelf.tableView beginUpdates];
                             [weakSelf.dataSource replaceObjectAtIndex:i withObject:cellModel];
@@ -754,7 +755,8 @@
                 if ([messageId isEqualToString:currMsg.messageId]) {
                     currentModel.status = eMessageDeliveryState_Failure;
                     currMsg.deliveryState = eMessageDeliveryState_Failure;
-                    MessageModel *cellModel = [MessageModelManager modelWithMessage:currMsg];
+//                    MessageModel *cellModel = [MessageModelManager modelWithMessage:currMsg];
+                    MessageModel *cellModel = [MessageModelManager modelWithMessage:currMsg withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [weakSelf.tableView beginUpdates];
                         [weakSelf.dataSource replaceObjectAtIndex:i withObject:cellModel];
@@ -887,7 +889,7 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         CGRect rect = self.tableView.frame;
-        rect.origin.y = 0;
+        rect.origin.y = 64;
         rect.size.height = self.view.frame.size.height - toHeight;
         self.tableView.frame = rect;
     }];
@@ -1147,7 +1149,8 @@
                 self.chatTagDate = createDate;
             }
             
-            MessageModel *model = [MessageModelManager modelWithMessage:message];
+//            MessageModel *model = [MessageModelManager modelWithMessage:message];
+            MessageModel *model = [MessageModelManager modelWithMessage:message withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
             if (model) {
                 [formatArray addObject:model];
             }
@@ -1167,7 +1170,8 @@
         self.chatTagDate = createDate;
     }
     
-    MessageModel *model = [MessageModelManager modelWithMessage:message];
+//    MessageModel *model = [MessageModelManager modelWithMessage:message];
+    MessageModel *model = [MessageModelManager modelWithMessage:message withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
     if (model) {
         [ret addObject:model];
     }

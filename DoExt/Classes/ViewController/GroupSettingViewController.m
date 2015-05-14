@@ -180,7 +180,6 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 - (void)pushSwitchChanged:(id)sender
 {
     if (_isOwner) {

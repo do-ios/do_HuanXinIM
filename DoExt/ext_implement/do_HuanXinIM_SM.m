@@ -63,12 +63,20 @@
     
     NSString *userName = [doJsonHelper GetOneText:_dictParas :@"username" :@""];
     NSString *userNickname = [doJsonHelper GetOneText:_dictParas :@"userNickname" :@""];
+    NSString *userIcon = [doJsonHelper GetOneText:_dictParas :@"userIcon" :@""];
+    NSString *myIcon = [doJsonHelper GetOneText:_dictParas :@"myIcon" :@""];
     //通过用户名得到聊天会话对象
     EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:userName isGroup:NO];
     NSString *chatter = conversation.chatter;
     //初始化聊天控制器
     ChatViewController *chatVC = [[ChatViewController alloc]initWithChatter:chatter isGroup:NO];
     chatVC.userNickname = userNickname;
+    if (userIcon != nil && userIcon.length > 0) {
+        chatVC.userIconUrl = userIcon;
+    }
+    if (myIcon != nil && myIcon.length > 0) {
+        chatVC.myIconUrl = myIcon;
+    }
     id<doIPage>pageModel = _scritEngine.CurrentPage;
     UIViewController *currentVC = (UIViewController *)pageModel.PageView;
     [currentVC presentViewController:chatVC animated:YES completion:^{
