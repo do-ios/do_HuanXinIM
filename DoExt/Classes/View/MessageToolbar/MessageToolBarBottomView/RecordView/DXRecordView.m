@@ -39,7 +39,7 @@
         [self addSubview:bgView];
         
         _recordAnimationView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, self.bounds.size.width - 20, self.bounds.size.height - 10)];
-        _recordAnimationView.image = [UIImage imageNamed:@"VoiceSearchFeedback001"];
+        _recordAnimationView.image = [UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback001"];
         [self addSubview:_recordAnimationView];
         
         _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(5,
@@ -49,7 +49,7 @@
         
         _textLabel.textAlignment = NSTextAlignmentCenter;
         _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.text = NSLocalizedString(@"message.toolBar.record.upCancel", @"Fingers up slide, cancel sending");
+        _textLabel.text = @" 手指上滑，取消发送 ";
         [self addSubview:_textLabel];
         _textLabel.font = [UIFont systemFontOfSize:13];
         _textLabel.textColor = [UIColor whiteColor];
@@ -64,7 +64,7 @@
 -(void)recordButtonTouchDown
 {
     // 需要根据声音大小切换recordView动画
-    _textLabel.text = NSLocalizedString(@"message.toolBar.record.upCancel", @"Fingers up slide, cancel sending");
+    _textLabel.text = @" 手指上滑，取消发送 ";
     _textLabel.backgroundColor = [UIColor clearColor];
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.05
                                               target:self
@@ -86,7 +86,7 @@
 // 手指移动到录音按钮内部
 -(void)recordButtonDragInside
 {
-    _textLabel.text = NSLocalizedString(@"message.toolBar.record.upCancel", @"Fingers up slide, cancel sending");
+    _textLabel.text = @" 手指上滑，取消发送 ";
     _textLabel.backgroundColor = [UIColor clearColor];
 }
 
@@ -98,49 +98,49 @@
 }
 
 -(void)setVoiceImage {
-    _recordAnimationView.image = [UIImage imageNamed:@"VoiceSearchFeedback001"];
+    _recordAnimationView.image = [UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback001.png"];
     double voiceSound = 0;
     voiceSound = [[EaseMob sharedInstance].deviceManager peekRecorderVoiceMeter];
     if (0 < voiceSound <= 0.05) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback001"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback001.png"]];
     }else if (0.05<voiceSound<=0.10) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback002"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback002"]];
     }else if (0.10<voiceSound<=0.15) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback003"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback003"]];
     }else if (0.15<voiceSound<=0.20) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback004"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback004"]];
     }else if (0.20<voiceSound<=0.25) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback005"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback005"]];
     }else if (0.25<voiceSound<=0.30) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback006"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback006"]];
     }else if (0.30<voiceSound<=0.35) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback007"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback007"]];
     }else if (0.35<voiceSound<=0.40) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback008"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback008"]];
     }else if (0.40<voiceSound<=0.45) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback009"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback009"]];
     }else if (0.45<voiceSound<=0.50) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback010"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback010"]];
     }else if (0.50<voiceSound<=0.55) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback011"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback011"]];
     }else if (0.55<voiceSound<=0.60) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback012"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback012"]];
     }else if (0.60<voiceSound<=0.65) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback013"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback013"]];
     }else if (0.65<voiceSound<=0.70) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback014"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback014"]];
     }else if (0.70<voiceSound<=0.75) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback015"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback015"]];
     }else if (0.75<voiceSound<=0.80) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback016"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback016"]];
     }else if (0.80<voiceSound<=0.85) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback017"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback017"]];
     }else if (0.85<voiceSound<=0.90) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback018"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback018"]];
     }else if (0.90<voiceSound<=0.95) {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback019"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback019"]];
     }else {
-        [_recordAnimationView setImage:[UIImage imageNamed:@"VoiceSearchFeedback020"]];
+        [_recordAnimationView setImage:[UIImage imageNamed:@"HuanXinIM_SM.bundle/Resources/ChatView/audio/VoiceSearchFeedback020"]];
     }
 }
 

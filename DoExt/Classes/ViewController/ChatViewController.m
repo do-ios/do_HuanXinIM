@@ -84,7 +84,7 @@
         _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:chatter isGroup:_isChatGroup];
         [_conversation markAllMessagesAsRead:YES];
     }
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     return self;
 }
 
@@ -137,6 +137,7 @@
     NSString *fileDleName = [filePath stringByAppendingPathComponent:@"delete.png"];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:self.userNickname];
     UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithContentsOfFile:fileName] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    [leftBarBtn setBackButtonBackgroundImage:[UIImage imageWithContentsOfFile:fileName] forState:UIControlStateNormal barMetrics:UIBarMetricsCompact];
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithContentsOfFile:fileDleName] style:UIBarButtonItemStylePlain target:self action:@selector(removeAllMessages:)];
     [navigationItem setLeftBarButtonItem:leftBarBtn];
     [navigationItem setRightBarButtonItem:rightBarBtn];
@@ -890,7 +891,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         CGRect rect = self.tableView.frame;
         rect.origin.y = 64;
-        rect.size.height = self.view.frame.size.height - toHeight;
+        rect.size.height = self.view.frame.size.height - toHeight - 80;
         self.tableView.frame = rect;
     }];
     [self scrollViewToBottom:YES];

@@ -266,7 +266,6 @@
     self.isShowButtomView = NO;
     NSString *filePath = [[[NSBundle mainBundle] resourcePath]stringByAppendingPathComponent:@"HuanXinIM_SM.bundle/Resources/ChatView"];
     NSString *fileName = [filePath stringByAppendingPathComponent:@"messageToolbarBg@2x.png"];
-    UIImage *img = [UIImage imageWithContentsOfFile:fileName];
     self.backgroundImageView.image = [[UIImage imageWithContentsOfFile:fileName] stretchableImageWithLeftCapWidth:0.5 topCapHeight:10];
     [self addSubview:self.backgroundImageView];
     
@@ -353,8 +352,8 @@
     
     NSString *filerecordSelName = [filePath stringByAppendingPathComponent:@"chatBar_recordSelectedBg.png"];
     [self.recordButton setBackgroundImage:[[UIImage imageWithContentsOfFile:filerecordSelName] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateHighlighted];
-    [self.recordButton setTitle:kTouchToRecord forState:UIControlStateNormal];
-    [self.recordButton setTitle:kTouchToFinish forState:UIControlStateHighlighted];
+    [self.recordButton setTitle:@"按住说话" forState:UIControlStateNormal];
+    [self.recordButton setTitle:@"松开发送" forState:UIControlStateHighlighted];
     self.recordButton.hidden = YES;
     [self.recordButton addTarget:self action:@selector(recordButtonTouchDown) forControlEvents:UIControlEventTouchDown];
     [self.recordButton addTarget:self action:@selector(recordButtonTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
