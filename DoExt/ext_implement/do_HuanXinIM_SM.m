@@ -16,6 +16,7 @@
 #import "doIPage.h"
 #import "ChatViewController.h"
 
+
 @interface do_HuanXinIM_SM ()<EMChatManagerDelegate>
 @property(nonatomic,strong) id<doIScriptEngine> scritEngine;
 @property(nonatomic,copy) NSString *callbackName;
@@ -111,11 +112,54 @@
     }
     else
     {
-        [infoNode setValue:@"0" forKey:@"state"];
+        [infoNode setValue:@"1" forKey:@"state"];
         [infoNode setValue:error.description forKey:@"message"];
     }
-    [_invokeResult SetResultNode:infoNode];
     [self.scritEngine Callback:self.callbackName :_invokeResult];
+}
+
+- (void)didReceiveMessage:(EMMessage *)message
+{
+    NSString *messageForm = message.from;
+    NSString *userNick = message.conversationChatter;
+    NSString *desc = [message description];
+    NSData *JSONData = [desc dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
+    NSArray *messageBodies = [responseJSON valueForKey:@"bodies"];
+    NSString *messageFirstBody = [messageBodies firstObject];
+    JSONData = [messageFirstBody dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *messageBodyDict = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
+    NSString *messageBody = [messageBodyDict valueForKey: @"msg"];
+    NSString *messageType = [messageBodyDict valueForKey:@"type"];
+    NSString *messageTime = [NSString stringWithFormat:@"%lld",message.timestamp];
+    doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
+    NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
+    [resultDict setValue:messageForm forKey:@"from"];
+    [resultDict setValue:userNick forKey:@"nick"];
+    [resultDict setValue:messageType forKey:@"type"];
+    [resultDict setValue:messageBody forKey:@"message"];
+    [resultDict setValue:messageTime forKey:@"time"];
+    [_result SetResultNode:resultDict];
+    [self.EventCenter FireEvent:@"receive" :_result];
+}
+
+- (void)didLoginFromOtherDevice
+{
+    doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
+    [_result SetResultText:@"2 显示帐号在其他设备登陆"];
+    [self.EventCenter FireEvent:@"connection" :_result];
+}
+
+- (void)didRemovedFromServer
+{
+    doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
+    [_result SetResultText:@"1 显示帐号已经被移除"];
+    [self.EventCenter FireEvent:@"connection" :_result];
+}
+
+-(void)didAutoReconnectFinishedWithError:(NSError *)error
+{
+    
 }
 
 @end

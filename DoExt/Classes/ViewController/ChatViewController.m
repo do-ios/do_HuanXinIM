@@ -128,6 +128,8 @@
     
     //通过会话管理者获取已收发消息
     [self loadMoreMessages];
+//    //设置昵称
+//    [ChatSendHelper setNickName:self.userNickname];
 }
 
 - (void)setupBarButtonItem
@@ -173,6 +175,9 @@
     else{
         _isScrollToBottom = YES;
     }
+    //设置昵称
+    [ChatSendHelper setNickName:self.userNickname];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated

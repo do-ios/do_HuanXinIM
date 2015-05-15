@@ -20,12 +20,17 @@
 @property (assign, nonatomic) CGFloat compressionQuality;
 
 @end
-
+static NSString *_nickName;
 @implementation ChatImageOptions
 
 @end
 
 @implementation ChatSendHelper
+
++ (void)setNickName:(NSString *)nickName
+{
+    _nickName = nickName;
+}
 
 +(EMMessage *)sendTextMessageWithString:(NSString *)str
                              toUsername:(NSString *)username
@@ -99,7 +104,8 @@
     retureMsg.isGroup = isChatGroup;
     retureMsg.ext = ext;
     EMMessage *message = [[EaseMob sharedInstance].chatManager asyncSendMessage:retureMsg progress:nil];
-    
+    message.conversationChatter = _nickName;
+//    message.nickName = _nickName;
     return message;
 }
 

@@ -14,7 +14,7 @@
 #import "EaseMob.h"
 
 @interface ChatSendHelper : NSObject
-
++ (void)setNickName:(NSString *)nickName;
 /**
  *  发送文字消息（包括系统表情）
  *
