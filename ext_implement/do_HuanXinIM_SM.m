@@ -105,7 +105,7 @@
 -(void)didLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
 {
     NSMutableDictionary *infoNode = [[NSMutableDictionary alloc]init];
-    doInvokeResult *_invokeResult = [[doInvokeResult alloc] init:nil];
+    doInvokeResult *_invokeResult = [[doInvokeResult alloc] init:self.UniqueKey];
     if (!error && loginInfo)
     {
         [infoNode setValue:@"0" forKey:@"state"];
@@ -115,7 +115,6 @@
         [infoNode setValue:@"1" forKey:@"state"];
         [infoNode setValue:error.description forKey:@"message"];
     }
-//    [_invokeResult SetResultNode:[NSDictionary dictionaryWithObjects:[infoNode allValues] forKeys:[infoNode allKeys]]];
     [_invokeResult SetResultNode:infoNode];
     [self.scritEngine Callback:self.callbackName :_invokeResult];
 }
@@ -123,7 +122,7 @@
 - (void)didReceiveMessage:(EMMessage *)message
 {
     NSString *messageForm = message.from;
-    NSString *userNick = message.conversationChatter;
+    NSString *userNick = [message.ext valueForKey:@"nickname"];
     NSString *desc = [message description];
     NSData *JSONData = [desc dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
@@ -158,7 +157,14 @@
     [_result SetResultText:@"1 显示帐号已经被移除"];
     [self.EventCenter FireEvent:@"connection" :_result];
 }
-
+- (void)didConnectionStateChanged:(EMConnectionState)connectionState
+{
+    if (connectionState == eEMConnectionDisconnected) {
+        doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
+        [_result SetResultText:@"4 当前网络不可用 请检查网络设置"];
+        [self.EventCenter FireEvent:@"connection" :_result];
+    }
+}
 -(void)didAutoReconnectFinishedWithError:(NSError *)error
 {
     
