@@ -104,8 +104,6 @@ static NSString *_nickName;
     retureMsg.isGroup = isChatGroup;
     retureMsg.ext = ext;
     EMMessage *message = [[EaseMob sharedInstance].chatManager asyncSendMessage:retureMsg progress:nil];
-    message.conversationChatter = _nickName;
-//    message.nickName = _nickName;
     return message;
 }
 

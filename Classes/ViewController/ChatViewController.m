@@ -1365,16 +1365,22 @@
     //        }
     //    }
     
+    NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
+    [userInfoDict setValue:self.userNickname forKey:@"nickname"];
+    
     EMMessage *tempMessage = [ChatSendHelper sendTextMessageWithString:textMessage
                                                             toUsername:_conversation.chatter
                                                            isChatGroup:_isChatGroup
                                                      requireEncryption:NO
-                                                                   ext:nil];
+                                                                   ext:userInfoDict];
     [self addMessage:tempMessage];
 }
 
 -(void)sendImageMessage:(UIImage *)imageMessage
 {
+    NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
+    [userInfoDict setValue:self.userNickname forKey:@"nickname"];
+
     EMMessage *tempMessage = [ChatSendHelper sendImageMessageWithImage:imageMessage
                                                             toUsername:_conversation.chatter
                                                            isChatGroup:_isChatGroup
@@ -1385,6 +1391,9 @@
 
 -(void)sendAudioMessage:(EMChatVoice *)voice
 {
+    NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
+    [userInfoDict setValue:self.userNickname forKey:@"nickname"];
+
     EMMessage *tempMessage = [ChatSendHelper sendVoice:voice
                                             toUsername:_conversation.chatter
                                            isChatGroup:_isChatGroup
@@ -1394,6 +1403,9 @@
 
 -(void)sendVideoMessage:(EMChatVideo *)video
 {
+    NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
+    [userInfoDict setValue:self.userNickname forKey:@"nickname"];
+
     EMMessage *tempMessage = [ChatSendHelper sendVideo:video
                                             toUsername:_conversation.chatter
                                            isChatGroup:_isChatGroup

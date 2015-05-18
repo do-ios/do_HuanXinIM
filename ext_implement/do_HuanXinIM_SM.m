@@ -122,7 +122,7 @@
 - (void)didReceiveMessage:(EMMessage *)message
 {
     NSString *messageForm = message.from;
-    NSString *userNick = message.conversationChatter;
+    NSString *userNick = [message.ext valueForKey:@"nickname"];
     NSString *desc = [message description];
     NSData *JSONData = [desc dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
