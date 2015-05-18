@@ -115,7 +115,8 @@
         [infoNode setValue:@"1" forKey:@"state"];
         [infoNode setValue:error.description forKey:@"message"];
     }
-    [_invokeResult SetResultNode:[NSDictionary dictionaryWithObjects:[infoNode allValues] forKeys:[infoNode allKeys]]];
+//    [_invokeResult SetResultNode:[NSDictionary dictionaryWithObjects:[infoNode allValues] forKeys:[infoNode allKeys]]];
+    [_invokeResult SetResultNode:infoNode];
     [self.scritEngine Callback:self.callbackName :_invokeResult];
 }
 
