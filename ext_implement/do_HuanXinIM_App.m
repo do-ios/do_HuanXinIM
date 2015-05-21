@@ -10,16 +10,17 @@
 #import "EaseMob.h"
 #import "doServiceContainer.h"
 #import "doIModuleExtManage.h"
-
+static do_HuanXinIM_App *instance;
 @implementation do_HuanXinIM_App
-@synthesize ThridPartyID;
-//- (instancetype)init
-//{
-//    if (self = [super init]) {
-//        self.ThridPartyID = @"HuanXin";
-//    }
-//    return self;
-//}
+@synthesize OpenURLScheme;
+
++ (instancetype) Instance
+{
+    if (instance == nil) {
+        instance = [[do_HuanXinIM_App alloc]init];
+    }
+    return instance;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
      NSString *huanxinKey = [[doServiceContainer Instance].ModuleExtManage GetThirdAppKey:@"do_HuanXinIM.plist" :@"EASEMOB_APPKEY"];

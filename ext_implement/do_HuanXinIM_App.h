@@ -11,5 +11,5 @@
 #import "doIAppDelegate.h"
 
 @interface do_HuanXinIM_App : NSObject<doIAppDelegate>
-
++ (instancetype) Instance;
 @end
