@@ -92,15 +92,14 @@
 {
     [super viewDidLoad];
     [self registerBecomeActive];
+    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
     titleNavbar = [[UINavigationBar alloc] init];
-    [titleNavbar setFrame :CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    [titleNavbar setFrame :CGRectMake(0, 20, self.view.frame.size.width, 44)];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
         self.edgesForExtendedLayout =  UIRectEdgeNone;
     }
-    
-
     [[[EaseMob sharedInstance] deviceManager] addDelegate:self onQueue:nil];
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
     //注册为SDK的ChatManager的delegate
@@ -138,12 +137,13 @@
     NSString *fileName = [filePath stringByAppendingPathComponent:@"back.png"];
     NSString *fileDleName = [filePath stringByAppendingPathComponent:@"delete.png"];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:self.userNickname];
-    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithContentsOfFile:fileName] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    [leftBarBtn setBackButtonBackgroundImage:[UIImage imageWithContentsOfFile:fileName] forState:UIControlStateNormal barMetrics:UIBarMetricsCompact];
-    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithContentsOfFile:fileDleName] style:UIBarButtonItemStylePlain target:self action:@selector(removeAllMessages:)];
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary:[titleNavbar titleTextAttributes]];
+    [titleBarAttributes setValue:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [titleNavbar setTitleTextAttributes:titleBarAttributes];
+    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:fileName] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:fileDleName] style:UIBarButtonItemStylePlain target:self action:@selector(removeAllMessages:)];
     [navigationItem setLeftBarButtonItem:leftBarBtn];
     [navigationItem setRightBarButtonItem:rightBarBtn];
-
     [titleNavbar pushNavigationItem:navigationItem animated:NO];
     titleNavbar.barTintColor = [UIColor colorWithRed:255/255.0 green:59/255.0 blue:64/255.0 alpha:1];
     [self.view addSubview:titleNavbar];
@@ -684,7 +684,7 @@
                     EMMessage *currMsg = [weakSelf.dataSource objectAtIndex:i];
                     if ([message.messageId isEqualToString:currMsg.messageId]) {
 //                        MessageModel *cellModel = [MessageModelManager modelWithMessage:message];
-                        MessageModel *cellModel = [MessageModelManager modelWithMessage:message withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
+                        MessageModel *cellModel = [MessageModelManager modelWithMessage:message withUserIcon:self.userIconUrl myIcon:self.myIconUrl];
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [weakSelf.tableView beginUpdates];
                             [weakSelf.dataSource replaceObjectAtIndex:i withObject:cellModel];
@@ -762,7 +762,7 @@
                     currentModel.status = eMessageDeliveryState_Failure;
                     currMsg.deliveryState = eMessageDeliveryState_Failure;
 //                    MessageModel *cellModel = [MessageModelManager modelWithMessage:currMsg];
-                    MessageModel *cellModel = [MessageModelManager modelWithMessage:currMsg withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
+                    MessageModel *cellModel = [MessageModelManager modelWithMessage:currMsg withUserIcon:self.userIconUrl myIcon:self.myIconUrl];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [weakSelf.tableView beginUpdates];
                         [weakSelf.dataSource replaceObjectAtIndex:i withObject:cellModel];
@@ -1156,7 +1156,7 @@
             }
             
 //            MessageModel *model = [MessageModelManager modelWithMessage:message];
-            MessageModel *model = [MessageModelManager modelWithMessage:message withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
+            MessageModel *model = [MessageModelManager modelWithMessage:message withUserIcon:self.userIconUrl myIcon:self.myIconUrl];
             if (model) {
                 [formatArray addObject:model];
             }
@@ -1177,7 +1177,7 @@
     }
     
 //    MessageModel *model = [MessageModelManager modelWithMessage:message];
-    MessageModel *model = [MessageModelManager modelWithMessage:message withUserIcon:self.myIconUrl myIcon:self.userIconUrl];
+    MessageModel *model = [MessageModelManager modelWithMessage:message withUserIcon:self.userIconUrl myIcon:self.myIconUrl];
     if (model) {
         [ret addObject:model];
     }
