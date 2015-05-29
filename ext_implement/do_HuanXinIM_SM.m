@@ -87,11 +87,12 @@
 - (void)logout:(NSArray *)parms
 {
     //自己的代码实现
-    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES];
+    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:nil onQueue:nil];
 }
 //异步
 - (void)login:(NSArray *)parms
 {
+    [self logout:nil];
     NSDictionary *_dictParas = [parms objectAtIndex:0];
     //自己的代码实现
     self.scritEngine = [parms objectAtIndex:1];
