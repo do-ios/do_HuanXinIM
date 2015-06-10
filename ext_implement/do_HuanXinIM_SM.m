@@ -148,21 +148,21 @@
 - (void)didLoginFromOtherDevice
 {
     doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
-    [_result SetResultText:@"2 显示帐号在其他设备登陆"];
+    [_result SetResultText:@"2"];//2 显示帐号在其他设备登陆
     [self.EventCenter FireEvent:@"connection" :_result];
 }
 
 - (void)didRemovedFromServer
 {
     doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
-    [_result SetResultText:@"1 显示帐号已经被移除"];
+    [_result SetResultText:@"1"];//1 显示帐号已经被移除
     [self.EventCenter FireEvent:@"connection" :_result];
 }
 - (void)didConnectionStateChanged:(EMConnectionState)connectionState
 {
     if (connectionState == eEMConnectionDisconnected) {
         doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
-        [_result SetResultText:@"4 当前网络不可用 请检查网络设置"];
+        [_result SetResultText:@"4"];//4 当前网络不可用 请检查网络设置
         [self.EventCenter FireEvent:@"connection" :_result];
     }
 }
