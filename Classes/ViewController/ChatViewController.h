@@ -10,8 +10,10 @@
 
 @interface ChatViewController : UIViewController
 @property(nonatomic,copy) NSString *userNickname;
+@property(nonatomic,copy) NSString *selfNick;
 @property(nonatomic,copy) NSString *userIconUrl;
 @property(nonatomic,copy) NSString *myIconUrl;
+@property(nonatomic,copy) NSString *tag;
 - (instancetype)initWithChatter:(NSString *)chatter isGroup:(BOOL)isGroup;
 - (void)reloadData;
 

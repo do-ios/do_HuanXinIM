@@ -61,23 +61,26 @@
     self.scritEngine = [parms objectAtIndex:1];
     
     //自己的代码实现
-    
-    NSString *userName = [doJsonHelper GetOneText:_dictParas :@"username" :@""];
-    NSString *userNickname = [doJsonHelper GetOneText:_dictParas :@"userNickname" :@""];
+    NSString *userID = [doJsonHelper GetOneText:_dictParas :@"userID" :@""];
+    NSString *userNick = [doJsonHelper GetOneText:_dictParas :@"userNick" :@""];
     NSString *userIcon = [doJsonHelper GetOneText:_dictParas :@"userIcon" :@""];
-    NSString *myIcon = [doJsonHelper GetOneText:_dictParas :@"myIcon" :@""];
-    //通过用户名得到聊天会话对象
-    EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:userName isGroup:NO];
+    NSString *selfNick = [doJsonHelper GetOneText:_dictParas :@"selfNick" :@""];
+    NSString *selfIcon = [doJsonHelper GetOneText:_dictParas :@"selfIcon" :@""];
+    NSString *tag = [doJsonHelper GetOneText:_dictParas :@"tag" :@""];
+        //通过用户名得到聊天会话对象
+    EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:userID isGroup:NO];
     NSString *chatter = conversation.chatter;
     //初始化聊天控制器
     ChatViewController *chatVC = [[ChatViewController alloc]initWithChatter:chatter isGroup:NO];
-    chatVC.userNickname = userNickname;
+    chatVC.userNickname = userNick;
     if (userIcon != nil && userIcon.length > 0) {
         chatVC.userIconUrl = userIcon;
     }
-    if (myIcon != nil && myIcon.length > 0) {
-        chatVC.myIconUrl = myIcon;
+    if (selfIcon != nil && selfIcon.length > 0) {
+        chatVC.myIconUrl = selfIcon;
     }
+    chatVC.selfNick = selfNick;
+    chatVC.tag = tag;
     id<doIPage>pageModel = _scritEngine.CurrentPage;
     UIViewController *currentVC = (UIViewController *)pageModel.PageView;
     [currentVC presentViewController:chatVC animated:YES completion:^{
@@ -123,7 +126,9 @@
 - (void)didReceiveMessage:(EMMessage *)message
 {
     NSString *messageForm = message.from;
-    NSString *userNick = [message.ext valueForKey:@"nickname"];
+    NSString *userNick = [message.ext valueForKey:@"nick"];
+    NSString *userIcon = [message.ext valueForKey:@"icon"];
+    NSString *tag = [message.ext valueForKey:@"tag"];
     NSString *desc = [message description];
     NSData *JSONData = [desc dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
@@ -137,7 +142,9 @@
     doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
     [resultDict setValue:messageForm forKey:@"from"];
+    [resultDict setValue:tag forKey:@"tag"];
     [resultDict setValue:userNick forKey:@"nick"];
+    [resultDict setValue:userIcon forKey:@"icon"];
     [resultDict setValue:messageType forKey:@"type"];
     [resultDict setValue:messageBody forKey:@"message"];
     [resultDict setValue:messageTime forKey:@"time"];
