@@ -145,6 +145,7 @@
     NSDictionary *messageBodyDict = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
     NSString *messageBody = [messageBodyDict valueForKey: @"msg"];
     NSString *messageType = [messageBodyDict valueForKey:@"type"];
+    messageType = [self changeType:messageType];
     NSString *messageTime = [NSString stringWithFormat:@"%lld",message.timestamp];
     doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
@@ -157,6 +158,22 @@
     [resultDict setValue:messageTime forKey:@"time"];
     [_result SetResultNode:resultDict];
     [self.EventCenter FireEvent:@"receive" :_result];
+}
+- (NSString *)changeType:(NSString *)type
+{
+    NSString *tempType;
+    if ([type isEqualToString:@"txt"]) {
+        type = @"TXT";
+    }
+    else if ([type isEqualToString:@"img"])
+    {
+        type = @"IMAGE";
+    }
+    else if ([type isEqualToString:@"audio"])
+    {
+        type = @"VOICE";
+    }
+    return tempType;
 }
 /**
  *  离线消息回调
@@ -179,6 +196,7 @@
         NSDictionary *messageBodyDict = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
         NSString *messageBody = [messageBodyDict valueForKey: @"msg"];
         NSString *messageType = [messageBodyDict valueForKey:@"type"];
+        messageType = [self changeType:messageType];
         NSString *messageTime = [NSString stringWithFormat:@"%lld",message.timestamp];
         doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
         NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
