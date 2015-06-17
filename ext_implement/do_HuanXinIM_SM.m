@@ -163,15 +163,15 @@
 {
     NSString *tempType;
     if ([type isEqualToString:@"txt"]) {
-        type = @"TXT";
+        tempType = @"TXT";
     }
     else if ([type isEqualToString:@"img"])
     {
-        type = @"IMAGE";
+        tempType = @"IMAGE";
     }
     else if ([type isEqualToString:@"audio"])
     {
-        type = @"VOICE";
+        tempType = @"VOICE";
     }
     return tempType;
 }

@@ -1387,7 +1387,7 @@
                                                             toUsername:_conversation.chatter
                                                            isChatGroup:_isChatGroup
                                                      requireEncryption:NO
-                                                                   ext:nil];
+                                                                   ext:userInfoDict];
     [self addMessage:tempMessage];
 }
 
@@ -1400,7 +1400,7 @@
     EMMessage *tempMessage = [ChatSendHelper sendVoice:voice
                                             toUsername:_conversation.chatter
                                            isChatGroup:_isChatGroup
-                                     requireEncryption:NO ext:nil];
+                                     requireEncryption:NO ext:userInfoDict];
     [self addMessage:tempMessage];
 }
 
@@ -1413,7 +1413,7 @@
     EMMessage *tempMessage = [ChatSendHelper sendVideo:video
                                             toUsername:_conversation.chatter
                                            isChatGroup:_isChatGroup
-                                     requireEncryption:NO ext:nil];
+                                     requireEncryption:NO ext:userInfoDict];
     [self addMessage:tempMessage];
 }
 
