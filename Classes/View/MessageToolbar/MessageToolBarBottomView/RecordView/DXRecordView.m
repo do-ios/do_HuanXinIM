@@ -93,7 +93,8 @@
 // 手指移动到录音按钮外部
 -(void)recordButtonDragOutside
 {
-    _textLabel.text = NSLocalizedString(@"message.toolBar.record.loosenCancel", @"loosen the fingers, to cancel sending");
+    _textLabel.text = @" 松开手指，取消发送 ";
+    
     _textLabel.backgroundColor = [UIColor redColor];
 }
 

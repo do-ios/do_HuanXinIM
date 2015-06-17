@@ -55,6 +55,9 @@
 //同步
 - (void)enterChat:(NSArray *)parms
 {
+    doInvokeResult *statusResult = [[doInvokeResult alloc]init];
+    [statusResult SetResultInteger:1];
+    [self.EventCenter FireEvent:@"chatStatusChanged" :statusResult];
     //自己的代码实现
     NSDictionary *_dictParas = [parms objectAtIndex:0];
     //js引擎
@@ -108,6 +111,10 @@
 
 -(void)didLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
 {
+    EMError *err = [[EaseMob sharedInstance].chatManager importDataToNewDatabase];
+    if (!err) {
+       [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+    }
     NSMutableDictionary *infoNode = [[NSMutableDictionary alloc]init];
     doInvokeResult *_invokeResult = [[doInvokeResult alloc] init:self.UniqueKey];
     if (!error && loginInfo)
@@ -127,7 +134,7 @@
 {
     NSString *messageForm = message.from;
     NSString *userNick = [message.ext valueForKey:@"nick"];
-    NSString *userIcon = [message.ext valueForKey:@"icon"];
+    NSString *selfIcon = [message.ext valueForKey:@"icon"];
     NSString *tag = [message.ext valueForKey:@"tag"];
     NSString *desc = [message description];
     NSData *JSONData = [desc dataUsingEncoding:NSUTF8StringEncoding];
@@ -144,12 +151,47 @@
     [resultDict setValue:messageForm forKey:@"from"];
     [resultDict setValue:tag forKey:@"tag"];
     [resultDict setValue:userNick forKey:@"nick"];
-    [resultDict setValue:userIcon forKey:@"icon"];
+    [resultDict setValue:selfIcon forKey:@"icon"];
     [resultDict setValue:messageType forKey:@"type"];
     [resultDict setValue:messageBody forKey:@"message"];
     [resultDict setValue:messageTime forKey:@"time"];
     [_result SetResultNode:resultDict];
     [self.EventCenter FireEvent:@"receive" :_result];
+}
+/**
+ *  离线消息回调
+ *
+ *  @param offlineMessages <#offlineMessages description#>
+ */
+-(void)didFinishedReceiveOfflineMessages:(NSArray *)offlineMessages
+{
+    for (EMMessage *message in offlineMessages) {
+        NSString *messageForm = message.from;
+        NSString *userNick = [message.ext valueForKey:@"nick"];
+        NSString *selfIcon = [message.ext valueForKey:@"icon"];
+        NSString *tag = [message.ext valueForKey:@"tag"];
+        NSString *desc = [message description];
+        NSData *JSONData = [desc dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
+        NSArray *messageBodies = [responseJSON valueForKey:@"bodies"];
+        NSString *messageFirstBody = [messageBodies firstObject];
+        JSONData = [messageFirstBody dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *messageBodyDict = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
+        NSString *messageBody = [messageBodyDict valueForKey: @"msg"];
+        NSString *messageType = [messageBodyDict valueForKey:@"type"];
+        NSString *messageTime = [NSString stringWithFormat:@"%lld",message.timestamp];
+        doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
+        NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
+        [resultDict setValue:messageForm forKey:@"from"];
+        [resultDict setValue:tag forKey:@"tag"];
+        [resultDict setValue:userNick forKey:@"nick"];
+        [resultDict setValue:selfIcon forKey:@"icon"];
+        [resultDict setValue:messageType forKey:@"type"];
+        [resultDict setValue:messageBody forKey:@"message"];
+        [resultDict setValue:messageTime forKey:@"time"];
+        [_result SetResultNode:resultDict];
+        [self.EventCenter FireEvent:@"receive" :_result];
+    }
 }
 
 - (void)didLoginFromOtherDevice

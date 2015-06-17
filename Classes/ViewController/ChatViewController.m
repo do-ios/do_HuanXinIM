@@ -1367,7 +1367,7 @@
     
     NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
     [userInfoDict setValue:self.selfNick forKey:@"nick"];
-    [userInfoDict setValue:self.userIconUrl forKey:@"icon"];
+    [userInfoDict setValue:self.myIconUrl forKey:@"icon"];
     [userInfoDict setValue:self.tag forKey:@"tag"];
     EMMessage *tempMessage = [ChatSendHelper sendTextMessageWithString:textMessage
                                                             toUsername:_conversation.chatter
@@ -1381,7 +1381,7 @@
 {
     NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
     [userInfoDict setValue:self.selfNick forKey:@"nick"];
-    [userInfoDict setValue:self.userIconUrl forKey:@"icon"];
+    [userInfoDict setValue:self.myIconUrl forKey:@"icon"];
     [userInfoDict setValue:self.tag forKey:@"tag"];
     EMMessage *tempMessage = [ChatSendHelper sendImageMessageWithImage:imageMessage
                                                             toUsername:_conversation.chatter
@@ -1395,7 +1395,7 @@
 {
     NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
     [userInfoDict setValue:self.selfNick forKey:@"nick"];
-    [userInfoDict setValue:self.userIconUrl forKey:@"icon"];
+    [userInfoDict setValue:self.myIconUrl forKey:@"icon"];
     [userInfoDict setValue:self.tag forKey:@"tag"];
     EMMessage *tempMessage = [ChatSendHelper sendVoice:voice
                                             toUsername:_conversation.chatter
@@ -1408,7 +1408,7 @@
 {
     NSMutableDictionary *userInfoDict = [NSMutableDictionary dictionary];
     [userInfoDict setValue:self.selfNick forKey:@"nick"];
-    [userInfoDict setValue:self.userIconUrl forKey:@"icon"];
+    [userInfoDict setValue:self.myIconUrl forKey:@"icon"];
     [userInfoDict setValue:self.tag forKey:@"tag"];
     EMMessage *tempMessage = [ChatSendHelper sendVideo:video
                                             toUsername:_conversation.chatter
