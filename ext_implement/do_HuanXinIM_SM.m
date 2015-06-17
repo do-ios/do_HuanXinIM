@@ -15,6 +15,7 @@
 #import "EaseMob.h"
 #import "doIPage.h"
 #import "ChatViewController.h"
+#import "IEMMessageBody.h"
 
 
 @interface do_HuanXinIM_SM ()<EMChatManagerDelegate>
@@ -132,6 +133,7 @@
 
 - (void)didReceiveMessage:(EMMessage *)message
 {
+    id<IEMMessageBody> messageBody = [message.messageBodies lastObject];
     NSString *messageForm = message.from;
     NSString *userNick = [message.ext valueForKey:@"nick"];
     NSString *selfIcon = [message.ext valueForKey:@"icon"];
@@ -143,7 +145,14 @@
     NSString *messageFirstBody = [messageBodies firstObject];
     JSONData = [messageFirstBody dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *messageBodyDict = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
-    NSString *messageBody = [messageBodyDict valueForKey: @"msg"];
+    NSString *messageBodyStr = [messageBodyDict valueForKey: @"msg"];
+    if (messageBody.messageBodyType == eMessageBodyType_Image) {
+        messageBodyStr = @"图片";
+    }
+    else if(messageBody.messageBodyType == eMessageBodyType_Voice)
+    {
+        messageBodyStr = @"音频";
+    }
     NSString *messageType = [messageBodyDict valueForKey:@"type"];
     messageType = [self changeType:messageType];
     NSString *messageTime = [NSString stringWithFormat:@"%lld",message.timestamp];
@@ -154,7 +163,7 @@
     [resultDict setValue:userNick forKey:@"nick"];
     [resultDict setValue:selfIcon forKey:@"icon"];
     [resultDict setValue:messageType forKey:@"type"];
-    [resultDict setValue:messageBody forKey:@"message"];
+    [resultDict setValue:messageBodyStr forKey:@"message"];
     [resultDict setValue:messageTime forKey:@"time"];
     [_result SetResultNode:resultDict];
     [self.EventCenter FireEvent:@"receive" :_result];
