@@ -133,9 +133,8 @@
 
 - (void)setupBarButtonItem
 {
-    NSString *filePath = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"HuanXinIM_SM.bundle/Resources/NavigationBar"];
-    NSString *fileName = [filePath stringByAppendingPathComponent:@"back.png"];
-    NSString *fileDleName = [filePath stringByAppendingPathComponent:@"delete.png"];
+    NSString *fileName = @"HuanXinIM_SM.bundle/Resources/NavigationBar/back.png";
+    NSString *fileDleName = @"HuanXinIM_SM.bundle/Resources/NavigationBar/delete.png";
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:self.userNickname];
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary:[titleNavbar titleTextAttributes]];
     [titleBarAttributes setValue:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];

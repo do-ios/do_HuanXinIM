@@ -138,7 +138,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B8966FE1AEF2CF60053E824 /* HuanXinIM_SM.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HuanXinIM_SM.bundle; sourceTree = "<group>"; };
 		3B8968681AEF5BDC0053E824 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
 		3B8968691AEF5BDC0053E824 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
 		3B89686A1AEF5BDC0053E824 /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
@@ -461,6 +460,7 @@
 		3BD5AE261AEE4FCF00CF31F6 /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		3BD5AE281AEE4FCF00CF31F6 /* libEaseMobClientSDKLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDKLite.a; sourceTree = "<group>"; };
 		3BD5AE2A1AEE4FCF00CF31F6 /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
+		3BE971951B343191004C8F74 /* HuanXinIM_SM.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HuanXinIM_SM.bundle; sourceTree = "<group>"; };
 		A4E1EABD1A778F1700F0B3CE /* libdoHuanXinIM_SM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdoHuanXinIM_SM.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1253,6 +1253,7 @@
 				3BD5AA261AEDFABC00CF31F6 /* do_HuanXinIM_App.m */,
 				3BD5AA271AEDFABC00CF31F6 /* do_HuanXinIM_SM.h */,
 				3BD5AA281AEDFABC00CF31F6 /* do_HuanXinIM_SM.m */,
+				3BE971951B343191004C8F74 /* HuanXinIM_SM.bundle */,
 			);
 			path = ext_implement;
 			sourceTree = "<group>";
@@ -1261,7 +1262,6 @@
 			isa = PBXGroup;
 			children = (
 				3B8968651AEF5BDC0053E824 /* Classes */,
-				3B8966FE1AEF2CF60053E824 /* HuanXinIM_SM.bundle */,
 				3BD5ADAE1AEE4FCE00CF31F6 /* EaseMobSDK */,
 				3BD5AC5C1AEE4F9F00CF31F6 /* Framework */,
 				A4917C461A78940200FFB148 /* ext_define */,
