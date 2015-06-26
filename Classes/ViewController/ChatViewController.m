@@ -164,6 +164,12 @@
 {
     return NO;
 }
+//屏幕方向
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -520,12 +526,12 @@
     id <IEMFileMessageBody> body = [model.message.messageBodies firstObject];
     EMAttachmentDownloadStatus downloadStatus = [body attachmentDownloadStatus];
     if (downloadStatus == EMAttachmentDownloading) {
-        [self showHint:NSLocalizedString(@"message.downloadingAudio", @"downloading voice, click later")];
+        [self showHint:@"正在下载语音，稍后点击"];
         return;
     }
     else if (downloadStatus == EMAttachmentDownloadFailure)
     {
-        [self showHint:NSLocalizedString(@"message.downloadingAudio", @"downloading voice, click later")];
+        [self showHint:@"正在下载语音，稍后点击"];
         [[EaseMob sharedInstance].chatManager asyncFetchMessage:model.message progress:nil];
         
         return;
@@ -946,9 +952,9 @@
              [self sendAudioMessage:aChatVoice];
          }else{
              if (error.code == EMErrorAudioRecordNotStarted) {
-                 [self showHint:error.domain yOffset:-40];
+                 [self showHint:@"录音还没开始" yOffset:-40];
              } else {
-                 [self showHint:error.domain];
+                 [self showHint:@"录音时间太短"];
              }
          }
          
