@@ -92,8 +92,9 @@
 {
     [super viewDidLoad];
     [self registerBecomeActive];
-    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+//    [[UINavigationBar appearance]setTintColor:[UIColor clearColor]];
     titleNavbar = [[UINavigationBar alloc] init];
+    [titleNavbar setTintColor:[UIColor whiteColor]];
     [titleNavbar setFrame :CGRectMake(0, 20, self.view.frame.size.width, 44)];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];

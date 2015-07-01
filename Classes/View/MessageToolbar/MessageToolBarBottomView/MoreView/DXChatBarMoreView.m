@@ -31,7 +31,7 @@
 {
     NSString *filePath = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"HuanXinIM_SM.bundle/Resources/ChatView"];
     self.backgroundColor = [UIColor clearColor];
-    CGFloat insets = (self.frame.size.width - 3 * CHAT_BUTTON_SIZE) / 4;
+    CGFloat insets = (self.frame.size.width - 2 * CHAT_BUTTON_SIZE) / 3;
     
     _photoButton =[UIButton buttonWithType:UIButtonTypeCustom];
     [_photoButton setFrame:CGRectMake(insets, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
@@ -61,14 +61,14 @@
     [_takePicButton addTarget:self action:@selector(takePicAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_takePicButton];
     
-    NSString *fileVideoName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_video@2x.png"];
-    NSString *fileVideoSelName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_videoSelected@2x.png"];
-    _videoButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_videoButton setFrame:CGRectMake(insets * 3 + CHAT_BUTTON_SIZE * 2, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-    [_videoButton setImage:[UIImage imageWithContentsOfFile:fileVideoName] forState:UIControlStateNormal];
-    [_videoButton setImage:[UIImage imageNamed:fileVideoSelName] forState:UIControlStateHighlighted];
-    [_videoButton addTarget:self action:@selector(takeVideoAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_videoButton];
+//    NSString *fileVideoName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_video@2x.png"];
+//    NSString *fileVideoSelName = [filePath stringByAppendingPathComponent:@"chatBar_colorMore_videoSelected@2x.png"];
+//    _videoButton =[UIButton buttonWithType:UIButtonTypeCustom];
+//    [_videoButton setFrame:CGRectMake(insets * 3 + CHAT_BUTTON_SIZE * 2, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+//    [_videoButton setImage:[UIImage imageWithContentsOfFile:fileVideoName] forState:UIControlStateNormal];
+//    [_videoButton setImage:[UIImage imageNamed:fileVideoSelName] forState:UIControlStateHighlighted];
+//    [_videoButton addTarget:self action:@selector(takeVideoAction) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:_videoButton];
     
     CGRect frame = self.frame;
     if (type == ChatMoreTypeChat) {
