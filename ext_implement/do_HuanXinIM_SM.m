@@ -121,6 +121,7 @@
     if (!error && loginInfo)
     {
         [infoNode setValue:@"0" forKey:@"state"];
+        [infoNode setValue:@"success" forKey:@"message"];
     }
     else
     {

@@ -96,10 +96,7 @@
 - (void)back
 {
     //添加状态改变事件
-    do_HuanXinIM_SM * huanxin = (do_HuanXinIM_SM *)[doScriptEngineHelper ParseSingletonModule:nil :@"do_HuanXinIM" ];
-    doInvokeResult *statusResult = [[doInvokeResult alloc]init];
-    [statusResult SetResultInteger:0];
-    [huanxin.EventCenter FireEvent:@"chatStatusChanged" :statusResult];
+    
     if (_isUpdate) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"GroupBansChanged" object:nil];
     }

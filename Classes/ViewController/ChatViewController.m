@@ -28,6 +28,9 @@
 #import "DXChatBarMoreView.h"
 #import "ChatViewController+Category.h"
 #import "CallSessionViewController.h"
+#import "doScriptEngineHelper.h"
+#import "do_HuanXinIM_SM.h"
+
 //#import "EMSDKFull.h"
 
 
@@ -219,6 +222,10 @@
 - (void)back
 {
     //判断当前会话是否为空，若符合则删除该会话
+    do_HuanXinIM_SM * huanxin = (do_HuanXinIM_SM *)[doScriptEngineHelper ParseSingletonModule:nil :@"do_HuanXinIM" ];
+    doInvokeResult *statusResult = [[doInvokeResult alloc]init];
+    [statusResult SetResultInteger:0];
+    [huanxin.EventCenter FireEvent:@"chatStatusChanged" :statusResult];
     EMMessage *message = [_conversation latestMessage];
     if (message == nil) {
         [[EaseMob sharedInstance].chatManager removeConversationByChatter:_conversation.chatter deleteMessages:NO append2Chat:YES];

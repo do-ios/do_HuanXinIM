@@ -9,7 +9,7 @@
 #import "GroupSettingViewController.h"
 #import "EaseMob.h"
 #import "UIViewController+HUD.h"
-
+#import "doInvokeResult.h"
 @interface GroupSettingViewController ()
 {
     EMGroup *_group;
