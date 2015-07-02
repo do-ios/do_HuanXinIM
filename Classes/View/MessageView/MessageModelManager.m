@@ -120,7 +120,9 @@
     NSDictionary *userInfo = [[EaseMob sharedInstance].chatManager loginInfo];
     NSString *login = [userInfo objectForKey:kSDKUsername];
     BOOL isSender = [login isEqualToString:message.from] ? YES : NO;
-    
+    if ([message.from isEqualToString:@""]) {
+        isSender = YES;
+    }
     MessageModel *model = [[MessageModel alloc] init];
     model.isRead = message.isRead;
     model.messageBody = messageBody;
