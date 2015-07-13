@@ -635,11 +635,12 @@
                 if (localPath && localPath.length > 0) {
                     NSURL *url = [NSURL fileURLWithPath:localPath];
                     self.isScrollToBottom = NO;
-                    [self.messageReadManager showBrowserWithImages:@[url]];
+//                    [self.messageReadManager showBrowserWithImages:@[url]];
+                    [weakSelf.messageReadManager showBrowser:weakSelf withImages:@[url]];
                     return ;
                 }
             }
-            [weakSelf showHudInView:weakSelf.view hint:NSLocalizedString(@"message.downloadingImage", @"downloading a image...")];
+            [weakSelf showHudInView:weakSelf.view hint:@"正在获取大图..."];
             [chatManager asyncFetchMessage:model.message progress:nil completion:^(EMMessage *aMessage, EMError *error) {
                 [weakSelf hideHud];
                 if (!error) {
@@ -647,11 +648,12 @@
                     if (localPath && localPath.length > 0) {
                         NSURL *url = [NSURL fileURLWithPath:localPath];
                         weakSelf.isScrollToBottom = NO;
-                        [weakSelf.messageReadManager showBrowserWithImages:@[url]];
+                        //[weakSelf.messageReadManager showBrowserWithImages:@[url]];
+                        [weakSelf.messageReadManager showBrowser:weakSelf withImages:@[url]];
                         return ;
                     }
                 }
-                [weakSelf showHint:NSLocalizedString(@"message.imageFail", @"image for failure!")];
+                [weakSelf showHint:@"视频获取失败!"];
             } onQueue:nil];
         }else{
             //获取缩略图

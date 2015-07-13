@@ -30,6 +30,7 @@ typedef void (^PlayBlock)(BOOL playing, MessageModel *messageModel);
 
 //default
 - (void)showBrowserWithImages:(NSArray *)imageArray;
+- (void)showBrowser:(UIViewController *)currVC withImages:(NSArray *)imageArray;
 
 /**
  *  准备播放语音文件

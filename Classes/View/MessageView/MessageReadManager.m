@@ -139,6 +139,31 @@ static MessageReadManager *detailInstance = nil;
     UIViewController *rootController = [self.keyWindow rootViewController];
     [rootController presentViewController:self.photoNavigationController animated:YES completion:nil];
 }
+- (void)showBrowser:(UIViewController *)currVC withImages:(NSArray *)imageArray
+{
+    if (imageArray && [imageArray count] > 0) {
+        NSMutableArray *photoArray = [NSMutableArray array];
+        for (id object in imageArray) {
+            MWPhoto *photo;
+            if ([object isKindOfClass:[UIImage class]]) {
+                photo = [MWPhoto photoWithImage:object];
+            }
+            else if ([object isKindOfClass:[NSURL class]])
+            {
+                photo = [MWPhoto photoWithURL:object];
+            }
+            else if ([object isKindOfClass:[NSString class]])
+            {
+                
+            }
+            [photoArray addObject:photo];
+        }
+        
+        self.photos = photoArray;
+    }
+    
+    [currVC presentViewController:self.photoNavigationController animated:YES completion:nil];
+}
 
 - (BOOL)prepareMessageAudioModel:(MessageModel *)messageModel
                       updateViewCompletion:(void (^)(MessageModel *prevAudioModel, MessageModel *currentAudioModel))updateCompletion

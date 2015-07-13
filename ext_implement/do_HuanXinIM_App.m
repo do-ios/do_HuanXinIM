@@ -151,12 +151,12 @@ static do_HuanXinIM_App *instance;
 //{
 //    [[EaseMob sharedInstance] applicationWillTerminate:application];
 //}
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation fromThridParty:(NSString *)_id
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return  [[EaseMob sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url fromThridParty:(NSString *)_id
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     return [[EaseMob sharedInstance] application:application handleOpenURL:url];
 }
