@@ -1245,7 +1245,7 @@
 - (void)removeAllMessages:(id)sender
 {
     if (_dataSource.count == 0) {
-        [self showHint:NSLocalizedString(@"message.noMessage", @"no messages")];
+        [self showHint:@"没有消息"];
         return;
     }
     
@@ -1257,7 +1257,7 @@
             _chatTagDate = nil;
             [_dataSource removeAllObjects];
             [self.tableView reloadData];
-            [self showHint:NSLocalizedString(@"message.noMessage", @"no messages")];
+            [self showHint:@"没有消息"];
         }
     }
     else{
