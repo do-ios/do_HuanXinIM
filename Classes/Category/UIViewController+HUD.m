@@ -11,7 +11,7 @@
   */
 
 #import "UIViewController+HUD.h"
-#import "MBProgressHUD.h"
+#import "doHXMBProgressHUD.h"
 //#import "HuanXinUIDefine.h"
 #import <objc/runtime.h>
 
@@ -32,16 +32,16 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 
 @implementation UIViewController (HUD)
 
-- (MBProgressHUD *)HUD{
+- (doHXMBProgressHUD *)HUD{
     return objc_getAssociatedObject(self, HttpRequestHUDKey);
 }
 
-- (void)setHUD:(MBProgressHUD *)HUD{
+- (void)setHUD:(doHXMBProgressHUD *)HUD{
     objc_setAssociatedObject(self, HttpRequestHUDKey, HUD, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)showHudInView:(UIView *)view hint:(NSString *)hint{
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view];
+    doHXMBProgressHUD *HUD = [[doHXMBProgressHUD alloc] initWithView:view];
     HUD.labelText = hint;
     [view addSubview:HUD];
     [HUD show:YES];
@@ -52,7 +52,7 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 {
     //显示提示信息
     UIView *view = [[UIApplication sharedApplication].delegate window];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    doHXMBProgressHUD *hud = [doHXMBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
@@ -66,7 +66,7 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 - (void)showHint:(NSString *)hint yOffset:(float)yOffset {
     //显示提示信息
     UIView *view = [[UIApplication sharedApplication].delegate window];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    doHXMBProgressHUD *hud = [doHXMBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;

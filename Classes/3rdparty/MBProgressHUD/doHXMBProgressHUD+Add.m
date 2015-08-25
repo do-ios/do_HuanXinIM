@@ -6,16 +6,16 @@
 //  Copyright (c) 2013年 itcast. All rights reserved.
 //
 
-#import "MBProgressHUD+Add.h"
+#import "doHXMBProgressHUD+Add.h"
 
-@implementation MBProgressHUD (Add)
+@implementation doHXMBProgressHUD (Add)
 
 #pragma mark 显示信息
 + (void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
 {
     if (view == nil) view = [UIApplication sharedApplication].keyWindow;
     // 快速显示一个提示信息
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    doHXMBProgressHUD *hud = [doHXMBProgressHUD showHUDAddedTo:view animated:YES];
     hud.labelText = text;
     // 设置图片
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
@@ -40,10 +40,10 @@
 }
 
 #pragma mark 显示一些信息
-+ (MBProgressHUD *)showMessag:(NSString *)message toView:(UIView *)view {
++ (doHXMBProgressHUD *)showMessag:(NSString *)message toView:(UIView *)view {
     if (view == nil) view = [UIApplication sharedApplication].keyWindow;
     // 快速显示一个提示信息
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    doHXMBProgressHUD *hud = [doHXMBProgressHUD showHUDAddedTo:view animated:YES];
     hud.labelText = message;
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;

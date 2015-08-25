@@ -72,8 +72,8 @@
 		3B6608CB1B679899008BED7C /* do_HuanXinIM_SM.h in Resources */ = {isa = PBXBuildFile; fileRef = 3B6608C31B679863008BED7C /* do_HuanXinIM_SM.h */; };
 		3BFCE6EF1B68D44000FBB2E0 /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE6801B68D44000FBB2E0 /* Emoji.m */; };
 		3BFCE6F01B68D44000FBB2E0 /* EmojiEmoticons.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE6821B68D44000FBB2E0 /* EmojiEmoticons.m */; };
-		3BFCE6F11B68D44000FBB2E0 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE6851B68D44000FBB2E0 /* MBProgressHUD+Add.m */; };
-		3BFCE6F21B68D44000FBB2E0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE6871B68D44000FBB2E0 /* MBProgressHUD.m */; };
+		3BFCE6F11B68D44000FBB2E0 /* doHXMBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE6851B68D44000FBB2E0 /* doHXMBProgressHUD+Add.m */; };
+		3BFCE6F21B68D44000FBB2E0 /* doHXMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE6871B68D44000FBB2E0 /* doHXMBProgressHUD.m */; };
 		3BFCE6F31B68D44000FBB2E0 /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE68B1B68D44000FBB2E0 /* MWCaptionView.m */; };
 		3BFCE6F41B68D44000FBB2E0 /* MWGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE68E1B68D44000FBB2E0 /* MWGridCell.m */; };
 		3BFCE6F51B68D44000FBB2E0 /* MWGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCE6901B68D44000FBB2E0 /* MWGridViewController.m */; };
@@ -388,10 +388,10 @@
 		3BFCE6801B68D44000FBB2E0 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
 		3BFCE6811B68D44000FBB2E0 /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
 		3BFCE6821B68D44000FBB2E0 /* EmojiEmoticons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiEmoticons.m; sourceTree = "<group>"; };
-		3BFCE6841B68D44000FBB2E0 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
-		3BFCE6851B68D44000FBB2E0 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
-		3BFCE6861B68D44000FBB2E0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		3BFCE6871B68D44000FBB2E0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		3BFCE6841B68D44000FBB2E0 /* doHXMBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "doHXMBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		3BFCE6851B68D44000FBB2E0 /* doHXMBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "doHXMBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		3BFCE6861B68D44000FBB2E0 /* doHXMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doHXMBProgressHUD.h; sourceTree = "<group>"; };
+		3BFCE6871B68D44000FBB2E0 /* doHXMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doHXMBProgressHUD.m; sourceTree = "<group>"; };
 		3BFCE68A1B68D44000FBB2E0 /* MWCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWCaptionView.h; sourceTree = "<group>"; };
 		3BFCE68B1B68D44000FBB2E0 /* MWCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWCaptionView.m; sourceTree = "<group>"; };
 		3BFCE68C1B68D44000FBB2E0 /* MWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWCommon.h; sourceTree = "<group>"; };
@@ -1206,10 +1206,10 @@
 		3BFCE6831B68D44000FBB2E0 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				3BFCE6841B68D44000FBB2E0 /* MBProgressHUD+Add.h */,
-				3BFCE6851B68D44000FBB2E0 /* MBProgressHUD+Add.m */,
-				3BFCE6861B68D44000FBB2E0 /* MBProgressHUD.h */,
-				3BFCE6871B68D44000FBB2E0 /* MBProgressHUD.m */,
+				3BFCE6841B68D44000FBB2E0 /* doHXMBProgressHUD+Add.h */,
+				3BFCE6851B68D44000FBB2E0 /* doHXMBProgressHUD+Add.m */,
+				3BFCE6861B68D44000FBB2E0 /* doHXMBProgressHUD.h */,
+				3BFCE6871B68D44000FBB2E0 /* doHXMBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -1684,7 +1684,7 @@
 				3B6608381B6797FB008BED7C /* CreateGroupViewController.m in Sources */,
 				3B6608391B6797FB008BED7C /* EMChooseViewController.m in Sources */,
 				3BFCE71C1B68D44000FBB2E0 /* WCAlertView.m in Sources */,
-				3BFCE6F11B68D44000FBB2E0 /* MBProgressHUD+Add.m in Sources */,
+				3BFCE6F11B68D44000FBB2E0 /* doHXMBProgressHUD+Add.m in Sources */,
 				3B6608371B6797FB008BED7C /* ContactSelectionViewController.m in Sources */,
 				3B6608271B6797FB008BED7C /* DXRecordView.m in Sources */,
 				3BFCE6F41B68D44000FBB2E0 /* MWGridCell.m in Sources */,
@@ -1764,7 +1764,7 @@
 				3BFCE7071B68D44000FBB2E0 /* UIImage+EMMultiFormat.m in Sources */,
 				3B6608351B6797FB008BED7C /* ChatGroupDetailViewController.m in Sources */,
 				3B66080E1B6797FB008BED7C /* ChatViewController+Category.m in Sources */,
-				3BFCE6F21B68D44000FBB2E0 /* MBProgressHUD.m in Sources */,
+				3BFCE6F21B68D44000FBB2E0 /* doHXMBProgressHUD.m in Sources */,
 				3BFCE71A1B68D44000FBB2E0 /* SRSlimeView.m in Sources */,
 				3B6608311B6797FB008BED7C /* MessageModel.m in Sources */,
 				3BFCE6FD1B68D44000FBB2E0 /* EMSDWebImageCompat.m in Sources */,

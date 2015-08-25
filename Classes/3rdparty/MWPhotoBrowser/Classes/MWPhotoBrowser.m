@@ -1555,9 +1555,9 @@
 
 #pragma mark - Action Progress
 
-- (MBProgressHUD *)progressHUD {
+- (doHXMBProgressHUD *)progressHUD {
     if (!_progressHUD) {
-        _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+        _progressHUD = [[doHXMBProgressHUD alloc] initWithView:self.view];
         _progressHUD.minSize = CGSizeMake(120, 120);
         _progressHUD.minShowTime = 1;
         // The sample image is based on the
