@@ -85,7 +85,7 @@
         _messages = [NSMutableArray array];
         //根据接收者的username获取当前会话的管理者
         _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:chatter isGroup:_isChatGroup];
-        [_conversation markAllMessagesAsRead:YES];
+//        [_conversation markAllMessagesAsRead:YES];
     }
     self.view.backgroundColor = [UIColor whiteColor];
     return self;
@@ -95,6 +95,10 @@
 {
     [super viewDidLoad];
     [self registerBecomeActive];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appHasGoneInForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 //    [[UINavigationBar appearance]setTintColor:[UIColor clearColor]];
     titleNavbar = [[UINavigationBar alloc] init];
     [titleNavbar setTintColor:[UIColor whiteColor]];
@@ -186,9 +190,17 @@
     }
     //设置昵称
     [ChatSendHelper setNickName:self.selfNick];
-
 }
-
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+- (void)appHasGoneInForeground:(NSNotification *)notification
+{
+    [UIApplication sharedApplication].applicationIconBadgeNumber -= [_conversation unreadMessagesCount];
+    [_conversation markAllMessagesAsRead:YES];
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];

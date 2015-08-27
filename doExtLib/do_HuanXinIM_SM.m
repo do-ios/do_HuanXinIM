@@ -73,6 +73,8 @@
     NSString *tag = [doJsonHelper GetOneText:_dictParas :@"tag" :@""];
         //通过用户名得到聊天会话对象
     EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:userID isGroup:NO];
+    [UIApplication sharedApplication].applicationIconBadgeNumber -= [conversation unreadMessagesCount];
+    [conversation markAllMessagesAsRead:YES];
     NSString *chatter = conversation.chatter;
     //初始化聊天控制器
     ChatViewController *chatVC = [[ChatViewController alloc]initWithChatter:chatter isGroup:NO];
@@ -173,6 +175,8 @@
 - (void)notificationLocal:(EMMessage *)message
 {
     BOOL needShowNotification = message.isGroup ? [self needShowNotification:message.conversationChatter] : YES;
+    UIApplication *application = [UIApplication sharedApplication];
+    application.applicationIconBadgeNumber += 1;
     if (needShowNotification) {
 #if !TARGET_IPHONE_SIMULATOR
         
@@ -248,16 +252,11 @@
         notification.alertBody = @"你有一条新消息";
     }
     
-//#warning 去掉注释会显示[本地]开头, 方便在开发中区分是否为本地推送
-    //notification.alertBody = [[NSString alloc] initWithFormat:@"[本地]%@", notification.alertBody];
-    
     notification.alertAction = @"打开";
     notification.timeZone = [NSTimeZone defaultTimeZone];
     notification.soundName = UILocalNotificationDefaultSoundName;
     //发送通知
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    //    UIApplication *application = [UIApplication sharedApplication];
-    //    application.applicationIconBadgeNumber += 1;
 }
 
 - (NSString *)changeType:(NSString *)type

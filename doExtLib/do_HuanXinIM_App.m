@@ -131,26 +131,6 @@ static do_HuanXinIM_App *instance;
 {
     [[EaseMob sharedInstance] applicationProtectedDataDidBecomeAvailable:notif.object];
 }
-//- (void)applicationWillResignActive:(UIApplication *)application
-//{
-//    [[EaseMob sharedInstance] applicationWillResignActive:application];
-//}
-//- (void)applicationDidEnterBackground:(UIApplication *)application
-//{
-//    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
-//}
-//- (void)applicationWillEnterForeground:(UIApplication *)application
-//{
-//    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
-//}
-//- (void)applicationDidBecomeActive:(UIApplication *)application
-//{
-//    [[EaseMob sharedInstance] applicationDidBecomeActive:application];
-//}
-//- (void)applicationWillTerminate:(UIApplication *)application
-//{
-//    [[EaseMob sharedInstance] applicationWillTerminate:application];
-//}
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return  [[EaseMob sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
@@ -175,7 +155,7 @@ static do_HuanXinIM_App *instance;
 // 注册推送
 - (void)registerRemoteNotification{
     UIApplication *application = [UIApplication sharedApplication];
-    application.applicationIconBadgeNumber = 0;
+//    application.applicationIconBadgeNumber = 0;
     
     if([application respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
