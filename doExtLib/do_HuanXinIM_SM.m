@@ -315,7 +315,9 @@
 - (void)didLoginFromOtherDevice
 {
     doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
-    [_result SetResultText:@"2"];//2 显示帐号在其他设备登陆
+    NSMutableDictionary *resDict = [NSMutableDictionary dictionary];
+    [resDict setObject:@"2" forKey:@"state"];
+    [_result SetResultNode:resDict];//2 显示帐号在其他设备登陆
     [self.EventCenter FireEvent:@"connection" :_result];
     [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:NO completion:^(NSDictionary *info, EMError *error) {
     } onQueue:nil];}
@@ -323,14 +325,18 @@
 - (void)didRemovedFromServer
 {
     doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
-    [_result SetResultText:@"1"];//1 显示帐号已经被移除
+    NSMutableDictionary *resDict = [NSMutableDictionary dictionary];
+    [resDict setObject:@"1" forKey:@"state"];
+    [_result SetResultNode:resDict];//1 显示帐号已经被移除
     [self.EventCenter FireEvent:@"connection" :_result];
 }
 - (void)didConnectionStateChanged:(EMConnectionState)connectionState
 {
     if (connectionState == eEMConnectionDisconnected) {
         doInvokeResult *_result = [[doInvokeResult alloc]init:self.UniqueKey];
-        [_result SetResultText:@"4"];//4 当前网络不可用 请检查网络设置
+        NSMutableDictionary *resDict = [NSMutableDictionary dictionary];
+        [resDict setObject:@"4" forKey:@"state"];
+        [_result SetResultNode:resDict];//4 当前网络不可用 请检查网络设置
         [self.EventCenter FireEvent:@"connection" :_result];
     }
 }
