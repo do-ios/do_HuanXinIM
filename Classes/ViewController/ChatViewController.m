@@ -198,6 +198,8 @@
 }
 - (void)appHasGoneInForeground:(NSNotification *)notification
 {
+    NSLog(@"%ld",(unsigned long)[_conversation unreadMessagesCount]);
+    NSLog(@"%ld", (long)[UIApplication sharedApplication].applicationIconBadgeNumber);
     [UIApplication sharedApplication].applicationIconBadgeNumber -= [_conversation unreadMessagesCount];
     [_conversation markAllMessagesAsRead:YES];
 }
@@ -206,7 +208,8 @@
     [super viewWillDisappear:animated];
     
     // 设置当前conversation的所有message为已读
-    [_conversation markAllMessagesAsRead:YES];
+//    [UIApplication sharedApplication].applicationIconBadgeNumber -= [_conversation unreadMessagesCount];
+//    [_conversation markAllMessagesAsRead:YES];
     [[EaseMob sharedInstance].deviceManager disableProximitySensor];
     
 }

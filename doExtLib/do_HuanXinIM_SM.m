@@ -175,14 +175,15 @@
 - (void)notificationLocal:(EMMessage *)message
 {
     BOOL needShowNotification = message.isGroup ? [self needShowNotification:message.conversationChatter] : YES;
-    UIApplication *application = [UIApplication sharedApplication];
-    application.applicationIconBadgeNumber += 1;
+    
     if (needShowNotification) {
 #if !TARGET_IPHONE_SIMULATOR
         
         BOOL isAppActivity = [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive;
         if (!isAppActivity) {
             [self showNotificationWithMessage:message];
+            UIApplication *application = [UIApplication sharedApplication];
+            application.applicationIconBadgeNumber += 1;
         }
 //        }else {
 //            [self playSoundAndVibration];
