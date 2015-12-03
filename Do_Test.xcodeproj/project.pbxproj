@@ -171,6 +171,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B56F2271C0E88EA00807B6A /* do_HuanXinIM.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = do_HuanXinIM.plist; sourceTree = "<group>"; };
 		3B5C94281B68DEDD009E1BB9 /* EMChatViewBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMChatViewBaseCell.h; path = MessageView/ChatCell/EMChatViewBaseCell.h; sourceTree = "<group>"; };
 		3B5C94291B68DEDD009E1BB9 /* EMChatViewBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMChatViewBaseCell.m; path = MessageView/ChatCell/EMChatViewBaseCell.m; sourceTree = "<group>"; };
 		3B6607661B6797FB008BED7C /* ChatViewController+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatViewController+Category.h"; sourceTree = "<group>"; };
@@ -1514,6 +1515,7 @@
 		A44BC7B31AEE19CD001580AA /* doExtLib */ = {
 			isa = PBXGroup;
 			children = (
+				3B56F2271C0E88EA00807B6A /* do_HuanXinIM.plist */,
 				3B6608C81B67986F008BED7C /* do_HuanXinIM_ISM.h */,
 				3B6608C11B679863008BED7C /* do_HuanXinIM_App.h */,
 				3B6608C21B679863008BED7C /* do_HuanXinIM_App.m */,
